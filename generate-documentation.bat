@@ -1,0 +1,1 @@
+"vendor/bin/phpdoc.bat" -d ./src -t ./docs
