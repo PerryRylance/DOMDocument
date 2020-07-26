@@ -1,13 +1,36 @@
 {
-	"name": "PerryRylance/DOMDocument",
-	"description": "An extension of PHP's DOMDocument library. This library implements many common jQuery functions, adds support for HTML5, CSS selectors, method chaining and performing operations on sets of matched results. The library also helps facilitate server side form serialization and validation.",
+	"name": "perry-rylance/dom-document",
+	"version": "1.0.0",
+	
+	"description": "An extension of PHP's DOMDocument library. This library implements many common jQuery functions, adds support for HTML5, CSS selectors, method chaining and performing operations on sets of matched results.",
+	
+	"type": "library",
+	"keywords": ["DOM", "HTML5"],
+	"homepage": "https://perryrylance.com",
+	"license": "MIT",
+	
+	"authors": [
+		{
+			"name": "Perry Rylance",
+			"email": "contact@perryrylance.com",
+			"homepage": "https://perryrylance.com",
+			"role": "Developer"
+		}
+	],
 	
     "require": {
 		"php": "^5.4",
         "masterminds/html5": "^2.7",
         "symfony/css-selector": "^5.1"
     },
+	
 	"require-dev": {
         "phpdocumentor/phpdocumentor": "2.*"
-    }
+    },
+	
+	"autoload": {
+		"psr-4": {
+			"PerryRylance\\DOMDocument\\": ["src/"]
+		}
+	}
 }
