@@ -9,4 +9,4 @@ An extension of PHP's DOMDocument library. This library implements many common j
 ## Installation
 I recommend installing this package via Composer
 
-composer require perry-rylance/dom-document
+`composer require perry-rylance/dom-document`
