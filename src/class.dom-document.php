@@ -1,8 +1,7 @@
 <?php
 
-namespace PerryRylance\DOMDocument;
+namespace PerryRylance;
 
-require_once('../vendor/autoload.php');
 require_once('dom-element.php');
 require_once('dom-query-results.php');
 
