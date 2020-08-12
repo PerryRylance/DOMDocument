@@ -32,7 +32,7 @@
 	
 	"autoload": {
 		"psr-4": {
-			"PerryRylance\\DOMDocument\\": ["src/"]
+			"PerryRylance\\": ["src"]
 		}
 	}
 }
