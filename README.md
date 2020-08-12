@@ -3,10 +3,8 @@ An extension of PHP's DOMDocument library. This library implements many common j
 
 ## Requirements
 - PHP >= 5.4.0
-- masterminds/html5
-- symfony/css-selector
 
 ## Installation
 I recommend installing this package via Composer
 
-composer require perry-rylance/dom-document
+`composer require perry-rylance/dom-document`
