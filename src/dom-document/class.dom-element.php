@@ -486,6 +486,56 @@ class DOMElement extends \DOMElement
 	}
 	
 	/**
+	 * Method for working with attributes on this element
+	 * @param string|array A string to get or set single a attribute, an array of key value pairs to set multiple attributes
+	 * @param null|string $val A string, if the first argument is a string, or NULL if the first argument is an array
+	 * @return string|DOMElement A string when retrieving data, this element when setting data
+	 * @throws \Exception When $arg is not supplied
+	 * @throws \Exception When first argument is neither a string nor an array
+	 * @throws \Exception When the first argument is a string, and the second argument is provided but not a string
+	 * @throws \Exception When the first argument is a key value array, but the second argument is also set
+	 * @throws \Exception When the supplied key value array has a non-string key
+	 * @throws \Exception When the supplied key value array has a non-string value
+	 */
+	public function attr($arg, $val=null)
+	{
+		if(empty($arg))
+			throw new \Exception("Method must be called with at least one argument");
+		
+		if(!is_string($arg) && !is_array($arg))
+			throw new \Exception("First argument must be a string attribute name, or a key value array of attributes to set");
+		
+		if($val === null)
+			return $this->getAttribute($arg);
+		
+		if(is_string($arg))
+		{
+			if(!is_string($val))
+				throw new \Exception("When the first argument is a string, and a second argument is provided, the second argument must also be a string, to set a single attribute");
+			
+			$this->setAttribute($arg, $val);
+		}
+		else
+		{
+			if($val !== null)
+				throw new \Exception("A second argument cannot be provided when the first argument is a key value array of attributes to set");
+			
+			foreach($arg as $key => $value)
+			{
+				if(!is_string($key))
+					throw new \Exception("Key must be a string");
+				
+				if(!is_string($value))
+					throw new \Exception("Value must be a string");
+				
+				$this->setAttribute($key, $value);
+			}
+		}
+		
+		return $this;
+	}
+	
+	/**
 	 * Method for working with data- attributes on this element
 	 * @param null|string|array $arg If both arguments are null / not provided, this function will return all data- attributes as an associative array. If a string is provided, it will be treated as a name and the value of the relevant data- attribute will be returned. If an array is provided, it will be used to set multiple data- attributes on the element.
 	 * @param null|string $val A second argument, this can only be used if $arg is a string

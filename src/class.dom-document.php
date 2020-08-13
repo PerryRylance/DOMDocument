@@ -2,8 +2,11 @@
 
 namespace PerryRylance;
 
-require_once('dom-element.php');
-require_once('dom-query-results.php');
+require_once(__DIR__ . '/dom-document/class.dom-element.php');
+require_once(__DIR__ . '/dom-document/class.dom-query-results.php');
+
+use PerryRylance\DOMDocument\DOMElement;
+use PerryRylance\DOMDocument\DOMQueryResults;
 
 /**
  * This is the main class which builds on top of PHP's native DOMDocument
@@ -66,6 +69,8 @@ class DOMDocument extends \DOMDocument
 			$el = $this->getDocumentElementSafe();
 			return call_user_func_array(array($el, $name), $arguments);
 		}
+		
+		throw new \Exception("No such method");
 	}
 	
 	/**
@@ -152,13 +157,23 @@ class DOMDocument extends \DOMDocument
 	{
 		// Workaround for some installations of PHP missing documentElement property
 		if(property_exists($this, 'documentElement'))
+		{
+			if(empty($this->documentElement))
+				throw new \Exception("Document is empty");
+			
 			return $this->documentElement;
+		}
 		
 		$xpath = new \DOMXPath($this);
 		$result = $xpath->query('/html/body');
-		$item = $result->item(0);
 		
-		return $item;
+		if($result->length)
+			return $result->item(0);
+		
+		if(!$this->firstChild)
+			throw new \Exception("Document is empty");
+		
+		return $this->firstChild;
 	}
 	
 	/**
@@ -171,7 +186,8 @@ class DOMDocument extends \DOMDocument
 		
 		if(property_exists($this, 'documentElement'))
 			$body = $this->querySelector('body');
-		else
+		
+		if(!$body)
 			$body = $this->getDocumentElementSafe();
 		
 		if(!$body)
@@ -181,6 +197,32 @@ class DOMDocument extends \DOMDocument
 			$result .= $this->saveHTML($node);
 			
 		return $result;
+	}
+	
+	/**
+	 * This function will import the specified content to be used inside this document.
+	 * @param mixed $subject The subject, a HTML fragment string, DOMElement from another document, or another DOMDocument.
+	 * @return DOMQueryResults The resulting element(s)
+	 */
+	public function import($subject)
+	{
+		if(is_string($subject))
+			$fragment = $subject;
+		else if($subject instanceof DOMElement || $subject instanceof DOMDocument)
+			$fragment = $subject->html;
+		
+		$temp 		= new DOMDocument();
+		$temp->loadHTML($fragment);
+		
+		$body		= $temp->getDocumentElementSafe();
+		$arr		= [];
+		
+		for($node = $body->firstChild; $node != null; $node = $node->nextSibling)
+			$arr []= $this->importNode($node, true);
+		
+		$results	= new DOMQueryResults($arr);
+		
+		return $results;
 	}
 	
 	private function assertNotEmpty()
