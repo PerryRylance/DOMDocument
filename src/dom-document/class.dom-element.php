@@ -865,6 +865,13 @@ class DOMElement extends \DOMElement
 					if($option->hasAttribute('value'))
 						return $option->getAttribute('value');
 					
+					return $option->nodeValue;
+					break;
+					
+				case 'option':
+					if($this->hasAttribute("value"))
+						return $this->getAttribute("value");
+					
 				default:
 					return $this->nodeValue;
 					break;
