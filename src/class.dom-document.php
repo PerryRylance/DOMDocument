@@ -86,7 +86,11 @@ class DOMDocument extends \DOMDocument
 			$options = [];
 		
 		if(isset($options['executePHP']) && $options['executePHP'])
-			$src = eval("?>$src");
+		{
+			ob_start();
+			eval("?>$src");
+			$src = ob_get_clean();
+		}
 		
 		if(!isset($options['disable_html_ns']))
 			$options['disable_html_ns'] = true;
