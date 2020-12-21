@@ -2,6 +2,8 @@
 
 namespace PerryRylance\DOMDocument;
 
+use PerryRylance\DOMDocument;
+
 /**
  * This class is used to represent elements, and implements many jQuery-like functions for the elements
  */
