@@ -1,8 +1,8 @@
 <?php
 
-require_once('../src/dom-document.php');
+require_once('../src/class.dom-document.php');
 
-use \PerryRylance\DOMDocument\DOMDocument as DOMDocument;
+use \PerryRylance\DOMDocument as DOMDocument;
 
 $document = new DOMDocument();
 $document->load("sample.html");
