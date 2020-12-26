@@ -100,6 +100,14 @@ class DOMDocument extends \DOMDocument
 		]);
 		$html5->loadHTML($src, $options);
 		
+		if($html5->hasErrors())
+		{
+			foreach($html5->getErrors() as $err)
+				trigger_error($err, E_USER_WARNING);
+			
+			Parent::loadHTML($src);
+		}
+		
 		return $this;
 	}
 	

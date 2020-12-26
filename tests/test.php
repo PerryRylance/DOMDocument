@@ -6,6 +6,15 @@ require_once('../src/class.dom-document.php');
 use \PerryRylance\DOMDocument as DOMDocument;
 
 $document = new DOMDocument();
+
+// start temp
+
+$document->loadHTML("This here is a test. It's not valid HTML");
+var_dump($document->html);
+exit;
+
+// end temp
+
 $document->load("sample.html");
 
 $tests = [
