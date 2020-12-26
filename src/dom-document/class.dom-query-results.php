@@ -26,20 +26,35 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 * @param string $name The name of the method to call
 	 * @param array $arguments The arguments which will be passed on to the corresponding method on DOMElement
 	 * @method mixed Mixed See DOMElement for a list of supported methods
+	 * @return This results set for functions which return $this (eg attr), a new results set for functions which return result sets (eg find)
 	 * @see DOMElement for a list of supported methods
 	 */
 	public function __call($name, $arguments)
 	{
+		$set = null;
+		
 		foreach($this->container as $element)
 		{
 			if(!method_exists($element, $name))
 				throw new \Exception("No such method '$name' on " . get_class($element));
 			
-			call_user_func_array(
+			$result = call_user_func_array(
 				array($element, $name),
 				$arguments
 			);
+			
+			if($result instanceof DOMQueryResults)
+			{
+				if($set == null)
+					$set = [];
+				
+				foreach($result as $el)
+					$set []= $el;
+			}
 		}
+		
+		if(is_array($set))
+			return new DOMQueryResults($set);
 		
 		return $this;
 	}
