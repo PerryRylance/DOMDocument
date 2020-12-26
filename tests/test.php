@@ -1,5 +1,6 @@
 <?php
 
+require_once('../vendor/autoload.php');
 require_once('../src/class.dom-document.php');
 
 use \PerryRylance\DOMDocument as DOMDocument;
