@@ -17,6 +17,28 @@ class DOMElement extends \DOMElement
 		\DOMElement::__construct();
 	}
 	
+	public function __call($method, $args)
+	{
+		/*
+		NB: This fixes fatal errors thrown by PHP 8.0 where an inherited "remove" function has an explicit return type.
+		Because this library implemented remove manually for PHP < 8.0, and because PHP >= 8.0 has an explicityly specified
+		return type, the function signatures conflict. We do this dynamically to maintain compatibility with lower versions
+		of PHP, but to also allow forward compatiblity with PHP 8.0 whilst keeping this library DRY.
+		*/
+		if($method == "remove")
+		{
+			if(method_exists("DOMElement", 'remove'))
+				\DOMElement::remove();
+			else
+			{
+				if($this->parentNode)
+					$this->parentNode->removeChild($this);
+			}
+		}
+		
+		return $this;
+	}
+	
 	/**
 	 * @internal sort function for DOM position sort
 	 * @ignore
@@ -595,13 +617,13 @@ class DOMElement extends \DOMElement
 	 * Removes this element from the DOM tree
 	 * @return DOMElement This element, for method chaining
 	 */
-	public function remove()
+	/*public function remove()
 	{
 		if($this->parentNode)
 			$this->parentNode->removeChild($this);
 		
 		return $this;
-	}
+	}*/
 	
 	/**
 	 * Empties this element by removing all the elements children, equivalent to jQuery's empty method
