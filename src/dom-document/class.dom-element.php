@@ -499,6 +499,8 @@ class DOMElement extends \DOMElement
 			"disable_html_ns" => true
 		]);
 		
+		$this->clear();
+		
 		$body = $temp->querySelector('#domdocument-import-payload___');
 		for($child = $body->firstChild; $child != null; $child = $child->nextSibling)
 		{
