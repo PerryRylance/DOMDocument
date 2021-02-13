@@ -192,6 +192,39 @@ $tests = [
 	],
 	
 	[
+		"caption" => "Attribute handling",
+		
+		"operation" => function() {
+			
+			global $document;
+			
+			$video = $document->querySelector("video");
+			
+			$video->attr("controls", "true");
+			$video->attr([
+				"muted"		=> true,
+				"autoplay"	=> true
+			]);
+			
+		},
+		
+		"assertion" => function() {
+			
+			global $document;
+			
+			$video = $document->querySelector("video");
+			
+			return (
+				$video->attr("controls") == "true"
+				&& $video->attr("muted")
+				&& $video->attr("autoplay")
+			);
+			
+		}
+		
+	],
+	
+	[
 	
 		"caption" => "data- attribute interface",
 		
@@ -205,7 +238,7 @@ $tests = [
 			$video->data([
 				"one" => "1",
 				"two" => "2",
-				"three" => "3"
+				"three" => 3
 			]);
 			
 		},
