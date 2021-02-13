@@ -499,6 +499,8 @@ class DOMElement extends \DOMElement
 			"disable_html_ns" => true
 		]);
 		
+		$this->clear();
+		
 		$body = $temp->querySelector('#domdocument-import-payload___');
 		for($child = $body->firstChild; $child != null; $child = $child->nextSibling)
 		{
@@ -529,7 +531,7 @@ class DOMElement extends \DOMElement
 		if(!is_string($arg) && !is_array($arg))
 			throw new \Exception("First argument must be a string attribute name, or a key value array of attributes to set");
 		
-		if($val === null)
+		if($val === null && is_string($arg))
 			return $this->getAttribute($arg);
 		
 		if(is_string($arg))
