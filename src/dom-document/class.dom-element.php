@@ -534,8 +534,8 @@ class DOMElement extends \DOMElement
 		
 		if(is_string($arg))
 		{
-			if(!is_string($val))
-				throw new \Exception("When the first argument is a string, and a second argument is provided, the second argument must also be a string, to set a single attribute");
+			if(!is_scalar($val))
+				throw new \Exception("When the first argument is a string, and a second argument is provided, the second argument must also be scalar, to set a single attribute");
 			
 			$this->setAttribute($arg, $val);
 		}
@@ -549,8 +549,8 @@ class DOMElement extends \DOMElement
 				if(!is_string($key))
 					throw new \Exception("Key must be a string");
 				
-				if(!is_string($value))
-					throw new \Exception("Value must be a string");
+				if(!is_scalar($value))
+					throw new \Exception("Value must be scalar");
 				
 				$this->setAttribute($key, $value);
 			}
@@ -588,7 +588,7 @@ class DOMElement extends \DOMElement
 		
 		if(is_string($arg))
 		{
-			if(is_string($val))
+			if(is_scalar($val))
 			{
 				$this->setAttribute("data-$arg", $val);
 				return $this;
@@ -934,7 +934,7 @@ class DOMElement extends \DOMElement
 					
 					if(!$this->hasAttribute('type') || $this->getAttribute('type') == 'text')
 					{
-						if(is_string($value))
+						if(is_scalar($value))
 							$this->setAttribute('value', $value);
 					}
 					else switch(strtolower($this->getAttribute('type')))

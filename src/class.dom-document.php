@@ -146,6 +146,7 @@ class DOMDocument extends \DOMDocument
 			$element = $this;
 		
 		$html5 = new \Masterminds\HTML5();
+		
 		return $html5->saveHTML($element, $options);
 	}
 	
@@ -207,7 +208,7 @@ class DOMDocument extends \DOMDocument
 		
 		for($node = $body->firstChild; $node != null; $node = $node->nextSibling)
 			$result .= $this->saveHTML($node);
-			
+		
 		return $result;
 	}
 	
