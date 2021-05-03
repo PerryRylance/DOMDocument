@@ -370,6 +370,41 @@ $tests = [
 			return $video === null;
 			
 		}
+	],
+	
+	[
+		"caption" => "Fragment handling",
+		
+		"operation" => function() {
+			
+			global $fragmentTriggeredError;
+			$fragmentTriggeredError = false;
+			
+			set_error_handler(function($errno, $errstr, $errfile, $errline) {
+				
+				global $fragmentTriggeredError;
+				$fragmentTriggeredError = true;
+				
+				echo $errstr;
+				
+			}, E_ALL);
+			
+			global $fragment;
+			$fragment = new DOMDocument();
+			$fragment->loadHTML("<div>Test fragment</div>");
+			
+			restore_error_handler();
+			
+		},
+		
+		"assertion" => function() {
+			
+			global $fragmentTriggeredError;
+			global $fragment;
+			
+			return !$fragmentTriggeredError && $fragment->html == "<div>Test fragment</div>";
+			
+		}
 	]
 	
 ];
