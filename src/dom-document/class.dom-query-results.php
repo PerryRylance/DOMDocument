@@ -35,8 +35,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		
 		foreach($this->container as $element)
 		{
+			// NB: PHP >= 8 includes a native remove method, PHP < 8 does not, we use a magic method for compatibility with both. This means the method_exists check below will fail. We do a special check for this case here.
 			if(!method_exists($element, $name))
-				throw new \Exception("No such method '$name' on " . get_class($element));
+			{
+				if( version_compare(phpversion(), '8.0.0', '>=') || $name != 'remove' )
+					throw new \Exception("No such method '$name' on " . get_class($element));
+			}
 			
 			$result = call_user_func_array(
 				array($element, $name),
