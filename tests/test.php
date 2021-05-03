@@ -268,7 +268,7 @@ $tests = [
 			
 			global $document;
 			
-			$document->querySelector(".node-to-be-removed")->remove();
+			$document->find(".node-to-be-removed")->remove();
 			
 		},
 		
