@@ -8,3 +8,6 @@ An extension of PHP's DOMDocument library. This library implements many common j
 I recommend installing this package via Composer
 
 `composer require perry-rylance/dom-document`
+
+## Notes
+This library will *drop support* for PHP < 7.0.0 in version >= 1.1.*
