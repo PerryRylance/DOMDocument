@@ -16,7 +16,7 @@ class DOMElement extends \DOMElement
 	{
 		\DOMElement::__construct();
 	}
-	
+
 	public function __call($method, $args)
 	{
 		/*
@@ -24,19 +24,22 @@ class DOMElement extends \DOMElement
 		Because this library implemented remove manually for PHP < 8.0, and because PHP >= 8.0 has an explicityly specified
 		return type, the function signatures conflict. We do this dynamically to maintain compatibility with lower versions
 		of PHP, but to also allow forward compatiblity with PHP 8.0 whilst keeping this library DRY.
+
+		This has also been added for before, after, replaceWith, append and prepend. Pending method chaining request on 
+		native implementation to remove this workaround.
 		*/
-		if($method == "remove")
-		{
-			if(method_exists("DOMElement", 'remove'))
-				\DOMElement::remove();
-			else
-			{
-				if($this->parentNode)
-					$this->parentNode->removeChild($this);
-			}
-		}
-		
+
+		$compatibilityMethod = "__compatibility_$method";
+
+		if(method_exists($this, $compatibilityMethod))
+			return call_user_func_array( [$this, $compatibilityMethod], $args );
+
 		return $this;
+	}
+
+	public function hasCompatibilityMethod($method)
+	{
+		return method_exists($this, "__compatibility_$method");
 	}
 	
 	/**
@@ -248,7 +251,7 @@ class DOMElement extends \DOMElement
 	 * @return DOMElement This element, for method chaining
 	 * @throws \Exception When the supplied argument is not an element or result set
 	 */
-	public function after($arg)
+	private function __compatibility_after($arg)
 	{
 		if($arg instanceof DOMElement)
 			$nodes = [$arg];
@@ -277,7 +280,7 @@ class DOMElement extends \DOMElement
 	 * @return DOMElement This element, for method chaining
 	 * @throws \Exception When the supplied argument is not an element or result set
 	 */
-	public function before($arg)
+	private function __compatibility_before($arg)
 	{
 		if($arg instanceof DOMElement)
 			$nodes = [$arg];
@@ -297,7 +300,7 @@ class DOMElement extends \DOMElement
 	 * @param DOMElement|DOMQueryResults|array|string $subject The content to insert, can be an element, an array or result set of elements, or a string
 	 * @return DOMElement This element, for method chaining
 	 */
-	public function append($subject)
+	private function __compatibility_append($subject)
 	{
 		if(is_array($subject) || $subject instanceof DOMQueryResults)
 		{
@@ -319,7 +322,7 @@ class DOMElement extends \DOMElement
 	 * @param DOMElement|DOMQueryResults|array|string $subject The content to insert, can be an element, an array or result set of elements, or a string
 	 * @return DOMElement This element, for method chaining
 	 */
-	public function prepend($subject)
+	private function __compatibility_prepend($subject)
 	{
 		if(is_array($subject) || $subject instanceof DOMQueryResults)
 		{
@@ -619,13 +622,13 @@ class DOMElement extends \DOMElement
 	 * Removes this element from the DOM tree
 	 * @return DOMElement This element, for method chaining
 	 */
-	/*public function remove()
+	private function __compatibility_remove()
 	{
 		if($this->parentNode)
 			$this->parentNode->removeChild($this);
 		
 		return $this;
-	}*/
+	}
 	
 	/**
 	 * Empties this element by removing all the elements children, equivalent to jQuery's empty method
@@ -662,7 +665,7 @@ class DOMElement extends \DOMElement
 		$nodes = $this->contents();
 		
 		$this->append($wrapper);
-		$wrapper->append($nodes);
+		$wrapper->__compatibility_append($nodes);
 		
 		return $this;
 	}
@@ -820,7 +823,7 @@ class DOMElement extends \DOMElement
 	 * @param DOMElement $node The element to replace this element with
 	 * @return DOMElement This element, for method chaining
 	 */
-	public function replaceWith(DOMElement $node)
+	public function __compatibility_replaceWith(DOMElement $node)
 	{
 		// TODO: Support sets of elements as well as single nodes
 		$next	= $this->nextSibling;

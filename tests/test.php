@@ -405,6 +405,34 @@ $tests = [
 			return !$fragmentTriggeredError && $fragment->html == "<div>Test fragment</div>";
 			
 		}
+	],
+
+	[
+		"caption" => "Compatibility testing (Calling bad method)",
+
+		"operation" => function() {
+
+			global $document;
+			global $exceptionCaught;
+
+			$exceptionCaught = false;
+			$results = $document->find("div");
+			
+			try{
+				$results->thisShouldThrowAnException();
+			}catch(Exception $e) {
+				$exceptionCaught = true;
+			}
+
+		},
+
+		"assertion" => function() {
+
+			global $exceptionCaught;
+
+			return $exceptionCaught;
+
+		}
 	]
 	
 ];
