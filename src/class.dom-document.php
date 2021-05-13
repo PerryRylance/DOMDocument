@@ -96,7 +96,7 @@ class DOMDocument extends \DOMDocument
 			$options['disable_html_ns'] = true;
 		
 		// NB: Hack to suppress doctype warning when dealing with fragments. This isn't ideal, but it's safe to assume HTML5 here, so we will simply add a doctype if it's not present.
-		if(!preg_match('/^<!DOCTYPE/i', $src))
+		if(!preg_match('/^<!DOCTYPE/i', $src))b8c
 			$src = "<!DOCTYPE html>$src";
 		
 		$html5 = new \Masterminds\HTML5([

@@ -268,7 +268,7 @@ $tests = [
 			
 			global $document;
 			
-			$document->querySelector(".node-to-be-removed")->remove();
+			$document->find(".node-to-be-removed")->remove();
 			
 		},
 		
@@ -369,6 +369,69 @@ $tests = [
 			
 			return $video === null;
 			
+		}
+	],
+	
+	[
+		"caption" => "Fragment handling",
+		
+		"operation" => function() {
+			
+			global $fragmentTriggeredError;
+			$fragmentTriggeredError = false;
+			
+			set_error_handler(function($errno, $errstr, $errfile, $errline) {
+				
+				global $fragmentTriggeredError;
+				$fragmentTriggeredError = true;
+				
+				echo $errstr;
+				
+			}, E_ALL);
+			
+			global $fragment;
+			$fragment = new DOMDocument();
+			$fragment->loadHTML("<div>Test fragment</div>");
+			
+			restore_error_handler();
+			
+		},
+		
+		"assertion" => function() {
+			
+			global $fragmentTriggeredError;
+			global $fragment;
+			
+			return !$fragmentTriggeredError && $fragment->html == "<div>Test fragment</div>";
+			
+		}
+	],
+
+	[
+		"caption" => "Compatibility testing (Calling bad method)",
+
+		"operation" => function() {
+
+			global $document;
+			global $exceptionCaught;
+
+			$exceptionCaught = false;
+			$results = $document->find("div");
+			
+			try{
+				$results->thisShouldThrowAnException();
+			}catch(Exception $e) {
+				$exceptionCaught = true;
+			}
+
+		},
+
+		"assertion" => function() {
+
+			global $exceptionCaught;
+
+			return $exceptionCaught;
+
 		}
 	]
 	
