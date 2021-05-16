@@ -314,27 +314,41 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		return new DOMQueryResults($results);
 	}
 
-	public function css($arg=null)
+	public function css($arg=null, $val=DOMDocument::UNDEFINED)
 	{
 		if(is_string($arg))
 		{
 			if(!$this->first())
 				return null;
+			
+			if($val == DOMDocument::UNDEFINED)
+				return $this->first()->getInlineStyle($arg);
+			
+			if(!is_string($val) && !is_null($val))
+				throw new \Exception("When a string is supplied as the first argument, the second argument must be a string or null");
 
-			return $this->first()->getInlineStyle($arg);
-		}
-		
-		if(!is_array($arg))
-			throw new \Exception("Invalid argument");
-		
-		foreach($this->container as $el)
-			foreach($arg as $key => $value)
+			foreach($this->container as $el)
 			{
-				if(empty($value))
-					$el->removeInlineStyle($key);
+				if(empty($val))
+					$el->removeInlineStyle($arg);
 				else
-					$el->setInlineStyle($key, $value);
+					$el->setInlineStyle($arg, $val);
 			}
+		}
+		else
+		{
+			if(!is_array($arg))
+				throw new \Exception("Invalid argument");
+			
+			foreach($this->container as $el)
+				foreach($arg as $key => $value)
+				{
+					if(empty($value))
+						$el->removeInlineStyle($key);
+					else
+						$el->setInlineStyle($key, $value);
+				}
+		}
 		
 		return $this;
 	}

@@ -155,6 +155,8 @@ $tests = [
 			// NB: Seems to fail text calls on sets created with DOMDocument::create
 			$cssTest->text($video->css("border"));
 
+			$video->css("filter", "");
+
 			$cssTest->addClass("pre");
 			
 		},
@@ -163,10 +165,7 @@ $tests = [
 			
 			global $document;
 			
-			$document->find("#css-test")->addClass("test");
-
-			return true;
-			// return $document->find("#css-test")->text() == "3px solid red";
+			return $document->find("#css-test")->text() == "3px solid red" && empty( $document->find("#css-test")->css("filter") );
 			
 		}
 	],

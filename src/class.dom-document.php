@@ -13,6 +13,8 @@ use PerryRylance\DOMDocument\DOMQueryResults;
  */
 class DOMDocument extends \DOMDocument
 {
+	const UNDEFINED = "b0814351-6e51-4134-a77b-8e5fbec4e026"; // NB: Used to differentiate between explicit null and argument not supplied, for example in DOMQueryResults::css
+
 	/**
 	 * Constructor for the DOMDocument
 	 */
