@@ -90,9 +90,6 @@ class DOMDocument extends \DOMDocument
 
 			$result		= call_user_func_array(array($set, $method), $arguments);
 
-			if($name == "querySelector")
-				return $result->first(); // NB: Backward compatibility
-
 			return $result;
 		}
 		
