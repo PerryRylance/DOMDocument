@@ -13,6 +13,8 @@ use PerryRylance\DOMDocument\DOMQueryResults;
  */
 class DOMDocument extends \DOMDocument
 {
+	const UNDEFINED = "b0814351-6e51-4134-a77b-8e5fbec4e026"; // NB: Used to differentiate between explicit null and argument not supplied, for example in DOMQueryResults::css
+
 	/**
 	 * Constructor for the DOMDocument
 	 */
@@ -52,7 +54,7 @@ class DOMDocument extends \DOMDocument
 				break;
 			
 			case "body":
-				return $this->querySelector("body");
+				return $this->find("body");
 				break;
 		}
 	}
@@ -64,13 +66,34 @@ class DOMDocument extends \DOMDocument
 	 */
 	public function __call($name, $arguments)
 	{
-		if(method_exists('\\PerryRylance\\DOMDocument\\DOMElement', $name))
+		$method = $name;
+
+		switch($name)
 		{
-			$el = $this->getDocumentElementSafe();
-			return call_user_func_array(array($el, $name), $arguments);
+			case "querySelector":
+			case "querySelectorAll":
+
+				trigger_error("querySelector and querySelectorAll are deprecated on DOMDocument. It is recommended to use DOMDocument::find instead", E_USER_WARNING);
+
+				$method = "find";	// NB: Backwards compatibility
+
+				break;
+			
+			default:
+				break;
+		}
+
+		if(method_exists('\\PerryRylance\\DOMDocument\\DOMQueryResults', $method))
+		{
+			$el			= $this->getDocumentElementSafe();
+			$set		= new DOMQueryResults([$el]);
+
+			$result		= call_user_func_array(array($set, $method), $arguments);
+
+			return $result;
 		}
 		
-		throw new \Exception("No such method");
+		throw new \Exception("No such method $name");
 	}
 	
 	/**
@@ -96,7 +119,7 @@ class DOMDocument extends \DOMDocument
 			$options['disable_html_ns'] = true;
 		
 		// NB: Hack to suppress doctype warning when dealing with fragments. This isn't ideal, but it's safe to assume HTML5 here, so we will simply add a doctype if it's not present.
-		if(!preg_match('/^<!DOCTYPE/i', $src))b8c
+		if(!preg_match('/^<!DOCTYPE/i', $src))
 			$src = "<!DOCTYPE html>$src";
 		
 		$html5 = new \Masterminds\HTML5([
@@ -202,7 +225,7 @@ class DOMDocument extends \DOMDocument
 		$result = '';
 		
 		if(property_exists($this, 'documentElement'))
-			$body = $this->querySelector('body');
+			$body = $this->find('body')->first();
 		
 		if(!$body)
 			$body = $this->getDocumentElementSafe();
@@ -246,5 +269,21 @@ class DOMDocument extends \DOMDocument
 	{
 		if(empty($this->getDocumentElementSafe()))
 			throw new \Exception('Document is empty');
+	}
+
+	public function create($html)
+	{
+		$div		= $this->createElement("div");
+		$set		= new DOMQueryResults($div);
+		$arr		= [];
+
+		$set->html($html);
+
+		// NB: Clone nodes here otherwise when they go out of scope, they're garbage collected
+
+		foreach($set->first()->childNodes as $node)
+			$arr	[]= $node->cloneNode(true);
+
+		return		new DOMQueryResults($arr);
 	}
 }

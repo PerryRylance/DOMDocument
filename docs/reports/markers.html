@@ -67,12 +67,12 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">35</span>
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">49</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">1</span>
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">5</span>
                                 </a>
                             </li>
                             <li>
@@ -96,8 +96,8 @@
         <div class="span2 sidebar">
             <ul class="side-nav nav nav-list">
                 <li class="nav-header">Navigation</li>
-                                                                        <li><a href="#dom-element.php"><i class="icon-file"></i> dom-element.php</a></li>
-                                                                                                                                                                                                                                            </ul>
+                                                                                                                                                                                        <li><a href="#dom-document\class.dom-query-results.php"><i class="icon-file"></i> dom-document\class.dom-query-results.php</a></li>
+                                                                    </ul>
         </div>
 
         <div class="span10 offset2">
@@ -109,12 +109,12 @@
 
             
             <div id="marker-accordion">
-                                                            <div class="package-contents">
-                            <a name="dom-element.php" id="dom-element.php"></a>
+                                                                                                                                    <div class="package-contents">
+                            <a name="dom-document\class.dom-query-results.php" id="dom-document\class.dom-query-results.php"></a>
                             <h3>
                             <i class="icon-file"></i>
-                                dom-element.php
-                                <small style="float: right;padding-right: 10px;">1</small>
+                                dom-document\class.dom-query-results.php
+                                <small style="float: right;padding-right: 10px;">5</small>
                             </h3>
                             <div>
                                 <table class="table markers table-bordered">
@@ -125,13 +125,33 @@
                                     </tr>
                                                                             <tr>
                                             <td>TODO</td>
-                                            <td>749</td>
-                                            <td>Support sets of elements as well as single nodes</td>
+                                            <td>42</td>
+                                            <td>Test that this returns by value and not by reference. External code should NOT manipulate this set</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>TODO</td>
+                                            <td>321</td>
+                                            <td>Is it sensible to return query results here? How will this handle non-element nodes?</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>TODO</td>
+                                            <td>697</td>
+                                            <td>This is a poor design pattern really. This might create confusion if developers expect this method to return the value attribute, which is what I would expect.</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>TODO</td>
+                                            <td>204</td>
+                                            <td>Review this, it should return a results set, should it be any empty array on an empty set? I expect so</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>TODO</td>
+                                            <td>217</td>
+                                            <td>Review this, it should return a results set, should it be any empty array on an empty set? I expect so</td>
                                         </tr>
                                                                     </table>
                             </div>
                         </div>
-                                                                                                                                                            </div>
+                                                </div>
         </div>
     </section>
 
@@ -172,7 +192,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on July 25th, 2020 at 14:17.
+                    on May 16th, 2021 at 12:28.
                 </section>
             </section>
         </section>

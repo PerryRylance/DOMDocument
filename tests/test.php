@@ -15,7 +15,7 @@ $tests = [
 		'assertion' => function() {
 			
 			global $document;
-			return $document->querySelector("body")->is("body");
+			return $document->find("body")->is("body");
 			
 		}
 	],
@@ -27,10 +27,10 @@ $tests = [
 			
 			global $document;
 			
-			$before	= $document->querySelector(".before");
-			$after	= $document->querySelector(".after");
+			$before	= $document->find(".before");
+			$after	= $document->find(".after");
 			
-			if($before->isBefore($after))
+			if($before->first()->isBefore($after->first()))
 			{
 				$before->text("This element is before");
 				$after->text("This element is after");
@@ -47,9 +47,9 @@ $tests = [
 			global $document;
 			
 			return (
-				$document->querySelector(".before")->text() == "This element is before"
+				$document->find(".before")->text() == "This element is before"
 				&&
-				$document->querySelector(".after")->text() == "This element is after"
+				$document->find(".after")->text() == "This element is after"
 			);
 			
 		}
@@ -62,7 +62,7 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			$elements = $video->children("[type='video/ogg']");
 			
 			return count($elements) == 1;
@@ -77,13 +77,13 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
-			$before = $document->createElement("div");
+			$before = $document->create("<div></div>");
 			$before->text("This is before the video");
 			$before->addClass("inserted-before");
 			
-			$after = $document->createElement("div");
+			$after = $document->create("<div></div>");
 			$after->text("This is after the video");
 			$after->addClass("inserted-after");
 			
@@ -96,12 +96,12 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
 			return (
 				$video->prev(".inserted-before")->is(".inserted-before")
 				&&
-				$video->next(".inserted-after")->is(".inserted-after")
+				$video->following(".inserted-after")->is(".inserted-after")
 			);
 		}
 	],
@@ -113,7 +113,7 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
 			$video->addClass("dynamically-added-class");
 			$video->addClass("class-to-remove");
@@ -125,7 +125,7 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
 			return ($video->hasClass("dynamically-added-class") && !$video->hasClass("class-to-remove"));
 			
@@ -140,19 +140,24 @@ $tests = [
 			
 			global $document;
 			
-			$cssTest = $document->createElement("div");
+			$cssTest = $document->create("<div></div>");
 			$cssTest->setAttribute("id", "css-test");
 			
-			$video = $document->querySelector("video");
-			$video->parentNode->append($cssTest);
+			$video = $document->find("video");
+			$video->parent()->append($cssTest);
 			
 			$video->css([
 				"border" => "3px solid red",
 				"margin" => "1em",
 				"filter" => "invert(100%)"
 			]);
-			
+
+			// NB: Seems to fail text calls on sets created with DOMDocument::create
 			$cssTest->text($video->css("border"));
+
+			$video->css("filter", "");
+
+			$cssTest->addClass("pre");
 			
 		},
 		
@@ -160,7 +165,7 @@ $tests = [
 			
 			global $document;
 			
-			return $document->querySelector("#css-test")->text() == "3px solid red";
+			return $document->find("#css-test")->text() == "3px solid red" && empty( $document->find("#css-test")->css("filter") );
 			
 		}
 	],
@@ -173,9 +178,9 @@ $tests = [
 			
 			global $document;
 			
-			$div = $document->createElement("div");
+			$div = $document->create("<div></div>");
 			$div->setAttribute("id", "html-test");
-			$document->querySelector("body")->append($div);
+			$document->find("body")->append($div);
 			
 			$div->html("<div class='html-test-success'>This element will be used to test <span style='background-color: green;'>HTML parsing!</span></div>");
 			
@@ -185,7 +190,7 @@ $tests = [
 			
 			global $document;
 			
-			return $document->querySelector(".html-test-success") != null;
+			return $document->find(".html-test-success") != null;
 			
 		}
 		
@@ -198,7 +203,7 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
 			$video->attr("controls", "true");
 			$video->attr([
@@ -212,7 +217,7 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
 			return (
 				$video->attr("controls") == "true"
@@ -232,7 +237,7 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
 			$video->data("test", "123");
 			$video->data([
@@ -247,7 +252,7 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
 			return (
 				$video->data("test") == "123"
@@ -276,7 +281,7 @@ $tests = [
 			
 			global $document;
 			
-			return $document->querySelector(".node-to-be-removed") == null;
+			return count( $document->find(".node-to-be-removed") ) == 0;
 			
 		}
 	
@@ -290,12 +295,12 @@ $tests = [
 			
 			global $document;
 			
-			$div = $document->createElement("div");
+			$div = $document->create("<div></div>");
 			
 			$div->id = "clearance-test";
 			$div->html("Some test text <span>and a child element</span>");
-			
-			$document->body->appendChild($div);
+
+			$document->find("body")->append($div);
 			
 			$div->clear();
 			
@@ -305,7 +310,7 @@ $tests = [
 			
 			global $document;
 			
-			return $document->querySelector("#clearance-test")->text() == "";
+			return $document->find("#clearance-test")->text() == "";
 			
 		}
 	
@@ -319,14 +324,14 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
-			$wrapper = $document->createElement("div");
-			$wrapper->id = "video-wrapper";
+			$wrapper = $document->create("<div></div>");
+			$wrapper->attr("id", "video-wrapper");
 			
 			$video->wrap($wrapper);
 			
-			$inner = $document->createElement("div");
+			$inner = $document->create("<div></div>");
 			$inner->addClass("inner-wrapper");
 			
 			$wrapper->wrapInner($inner);
@@ -337,9 +342,9 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
-			
-			return $video->closest("#video-wrapper") != null && $video->parentNode->hasClass("inner-wrapper");
+			$video = $document->find("video");
+
+			return $video->closest("#video-wrapper")->is("#video-wrapper") && $video->parent()->hasClass("inner-wrapper");
 			
 		}
 		
@@ -352,9 +357,9 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
-			$replacement = $document->createElement("div");
+			$replacement = $document->create("<div></div>");
 			$replacement->text("The video was here!");
 			
 			$video->replaceWith($replacement);
@@ -365,9 +370,9 @@ $tests = [
 			
 			global $document;
 			
-			$video = $document->querySelector("video");
+			$video = $document->find("video");
 			
-			return $video === null;
+			return count($video) == 0;
 			
 		}
 	],
@@ -408,29 +413,58 @@ $tests = [
 	],
 
 	[
-		"caption" => "Compatibility testing (Calling bad method)",
+		"caption" => "List population",
 
 		"operation" => function() {
 
 			global $document;
-			global $exceptionCaught;
 
-			$exceptionCaught = false;
-			$results = $document->find("div");
+			$template = $document->find("li.template");
+			$container = $template->parent();
+			$template->remove();
+
+			$data = [];
+
+			for($i = 1; $i <= 20; $i++)
+				$data []= $i;
 			
-			try{
-				$results->thisShouldThrowAnException();
-			}catch(Exception $e) {
-				$exceptionCaught = true;
+			foreach($data as $i)
+			{
+				$li = $template->duplicate();
+				$li->text($i);
+
+				$container->append($li);
 			}
 
 		},
 
 		"assertion" => function() {
 
-			global $exceptionCaught;
+			global $document;
 
-			return $exceptionCaught;
+			return count( $document->find("ul")->children() ) == 20;
+
+		}
+	],
+
+	[
+		"caption" => "Link concatenation",
+
+		"operation" => function() {
+
+			global $document;
+
+			$a		= $document->find("a#blog");
+			$href	= $a->attr("href");
+			$a->attr("href", "$href/development/journal/domdocument-2-0-0-release");
+
+		},
+
+		"assertion" => function() {
+
+			global $document;
+
+			return $document->find("a#blog")->attr("href") == "https://perryrylance.com/development/journal/domdocument-2-0-0-release";
 
 		}
 	]
