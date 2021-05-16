@@ -445,6 +445,28 @@ $tests = [
 			return count( $document->find("ul")->children() ) == 20;
 
 		}
+	],
+
+	[
+		"caption" => "Link concatenation",
+
+		"operation" => function() {
+
+			global $document;
+
+			$a		= $document->find("a#blog");
+			$href	= $a->attr("href");
+			$a->attr("href", "$href/development/journal/domdocument-2-0-0-release");
+
+		},
+
+		"assertion" => function() {
+
+			global $document;
+
+			return $document->find("a#blog")->attr("href") == "https://perryrylance.com/development/journal/domdocument-2-0-0-release";
+
+		}
 	]
 	
 ];
