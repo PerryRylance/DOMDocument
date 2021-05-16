@@ -182,7 +182,7 @@ class DOMElement extends \DOMElement
 	/**
 	 * @ignore
 	 */
-	private function getInlineStyles()
+	public function getInlineStyles()
 	{
 		if(!$this->hasAttribute('style'))
 			return [];
@@ -209,7 +209,7 @@ class DOMElement extends \DOMElement
 	/**
 	 * @ignore
 	 */
-	private function getInlineStyle($name)
+	public function getInlineStyle($name)
 	{
 		if(!$this->hasAttribute("style"))
 			return null;
@@ -225,7 +225,7 @@ class DOMElement extends \DOMElement
 	/**
 	 * @ignore
 	 */
-	private function removeInlineStyle($name)
+	public function removeInlineStyle($name)
 	{
 		if(!$this->hasAttribute('style'))
 			return;
@@ -245,7 +245,7 @@ class DOMElement extends \DOMElement
 	/**
 	 * @ignore
 	 */
-	private function setInlineStyle($name, $value)
+	public function setInlineStyle($name, $value)
 	{
 		$this->removeInlineStyle($name);
 		$style = $this->getAttribute('style');

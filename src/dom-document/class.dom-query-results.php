@@ -2,6 +2,8 @@
 
 namespace PerryRylance\DOMDocument;
 
+use PerryRylance\DOMDocument;
+
 /**
  * This class is used to represent a results set of matched elements, in much the same way as a jQuery array works. Any methods supported by DOMElement can be called on a DOMQueryResults list.
  */
@@ -13,12 +15,26 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Constructor. This should never be invoked outside of DOMElement
 	 */
-	public function __construct(array $arr = null)
+	public function __construct($arr = null)
 	{
+		$this->container = [];
+
 		if(!empty($arr))
-			$this->container = $arr;
-		else
-			$this->container = array();
+		{
+			if(is_array($arr))
+				$this->container = $arr;
+			else if($arr instanceof DOMQueryResults)
+				$this->container = $arr->toArray();
+			else if($arr instanceof DOMElement)
+				$this->container = [$arr];
+			else
+				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMQueryResults, DOMElement, or omitted");
+
+			// NB: Sanity check
+			foreach($this->container as $el)
+				if(!($el instanceof DOMElement))
+					throw new \Exception("All elements must be instances of DOMElement");
+		}
 	}
 	
 	public function toArray()
@@ -102,8 +118,11 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		return $this->container[$this->index];
 	}
 	
-	public function next()
+	public function next($arg=null)
 	{
+		if(!empty($arg))
+			trigger_error("DOMQueryResults::next is an implementation of Iterator::next, which takes no arguments. Did you mean to call jQuery-like DOMQueryResults::following instead?", E_USER_WARNING);
+
 		$this->index++;
 	}
 	
@@ -212,13 +231,13 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	{
 		$result = [];
 
-		$this->each(function($el) use (&$result) {
+		$this->each(function($el) use (&$result, $selector) {
 
 			$subset	= $el->querySelectorAll($selector, [
 				"sort" => true
 			]);
 
-			$result = array_concat($result, $subset->toArray());
+			$result = array_merge($result, $subset->toArray());
 
 		});
 
@@ -250,7 +269,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		
 		foreach($children as $child)
 		{
-			if($child->is($selector))
+			if((new DOMQueryResults($child))->is($selector))
 				$results []= $child;
 		}
 		
@@ -264,14 +283,11 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 */
 	public function is($selector)
 	{
-		foreach($this->container as $el)
-		{
-			$matches = $el->parentNode->querySelectorAll($selector);
+		$matches = $this->parent()->find($selector);
 
-			foreach($matches as $m)
-				if(array_search($m, $this->container, true) !== false)
-					return true;
-		}
+		foreach($matches as $m)
+			if(array_search($m, $this->container, true) !== false)
+				return true;
 
 		return false;
 	}
@@ -332,16 +348,18 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			foreach($this->container as $el)
 				$result .= $el->textContent;
 			
-			return $el;
+			return $result;
 		}
 
 		if(!is_string($text))
 			throw new \Exception("Input must be text");
 
+		$this->clear();
+
 		foreach($this->container as $el)
 		{
-			$el->clear();
-			$el->appendChild( $el->ownerDocument->createTextNode($text) );
+			$node = $el->ownerDocument->createTextNode($text);
+			$el->appendChild($node);
 		}
 
 		return $this;
@@ -370,11 +388,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			"disable_html_ns" => true
 		]);
 
-		$body = $temp->querySelector('#domdocument-import-payload___');
+		$body = $temp->find('#domdocument-import-payload___')->first();
 
 		foreach($this->container as $el)
 		{
-			$el->clear();
+			while($el->childNodes->length)
+				$el->removeChild($el->firstChild);
 
 			for($child = $body->firstChild; $child != null; $child = $child->nextSibling)
 			{
@@ -395,11 +414,21 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		return $this;
 	}
 
-	public function wrap(DOMElement $template)
+	public function wrap($template)
 	{
+		if(!($template instanceof DOMElement || $template instanceof DOMQueryResults))
+			throw new \Exception("Argument must be an instance of DOMElement or DOMQueryResults");
+		
+		if($template instanceof DOMQueryResults)
+			$template = $template->first();	// NB: Wrap in the first node of the set, mirror jQuery behaviour
+
 		foreach($this->container as $el)
 		{
-			$wrapper = $template->cloneNode(true);
+			// NB: Only clone nodes when appending to multiple targets
+			if(count($this->container) == 1)
+				$wrapper = $template;
+			else
+				$wrapper = $template->cloneNode(true);
 
 			$el->parentNode->replaceChild($wrapper, $el);
 			$wrapper->appendChild($el);
@@ -408,13 +437,19 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		return $this;
 	}
 
-	public function wrapInner(DOMElement $template)
+	public function wrapInner($template)
 	{
+		if(!($template instanceof DOMElement || $template instanceof DOMQueryResults))
+			throw new \Exception("Argument must be an instance of DOMElement or DOMQueryResults");
+
+		if($template instanceof DOMQueryResults)
+			$template = $template->first();	// NB: Wrap in the first node of the set, mirror jQuery behaviour
+
 		foreach($this->container as $el)
 		{
-			$wrapper = $template->cloneNode(true);
+			$wrapper	= $template->cloneNode(true);
+			$nodes		= iterator_to_array($el->childNodes);
 			
-			$nodes = iterator_to_array($el->childNodes);
 			$el->appendChild($wrapper);
 			
 			foreach($nodes as $node)
@@ -424,19 +459,44 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		return $this;
 	}
 
+	// NB: This element will NOT work on the document element (HTML)
 	public function closest($selector)
 	{
-		$results = [];
+		$results			= [];
 
 		foreach($this->container as $el)
 		{
-			if($el === $el->ownerDocument->getDocumentElementSafe())
-				throw new \Exception('Method not valid on document element');
-			
-			for($node = $el; $node->parentNode != null; $node = $node->parentNode)
+			$documentElement = $el->ownerDocument->getDocumentElementSafe();
+
+			for($node = $el; $node !== $documentElement; $node = $node->parentNode)
 			{
-				if($node->is($selector) && array_search($node, $results, true) === false)
+				if((new DOMQueryResults($node))->is($selector) && array_search($node, $results, true) === false)
 					$results []= $node;
+			}
+		}
+
+		return new DOMQueryResults($results);
+	}
+
+	public function parent($selector=null)
+	{
+		$result = [];
+
+		foreach($this->container as $el)
+		{
+			if($selector != null && !((new DOMQueryResults($el->parentNode))->is($selector)))
+				continue;
+
+			if(array_search($el->parentNode, $result, true) !== false)
+				continue;
+			
+			$result []= $el->parentNode;
+
+			if($el->parentNode instanceof DOMDocument)
+			{
+				print_r($el->html);
+				
+				throw new \Exception("Whoops...");
 			}
 		}
 
@@ -473,7 +533,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			if($node->nodeType != XML_ELEMENT_NODE)
 				continue;
 			
-			if($selector == null || $node->is($selector))
+			if($selector == null || (new DOMQueryResults($node))->is($selector))
 				$results []= $node;
 		}
 
@@ -487,12 +547,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		
 		$results = [];
 		
-		for($node = $this->nextSibling; $node != null; $node = $node->nextSibling)
+		for($node = $this->first()->nextSibling; $node != null; $node = $node->nextSibling)
 		{
 			if($node->nodeType != XML_ELEMENT_NODE)
 				continue;
 			
-			if($selector == null || $node->is($selector))
+			if($selector == null || (new DOMQueryResults($node))->is($selector))
 				$results []= $node;
 		}
 
@@ -589,14 +649,14 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 				
 				case 'select':
 					
-					$deselect = $el->querySelectorAll('option[selected]');
+					$deselect = $el->find('option[selected]');
 					foreach($deselect as $d)
 						$d->removeAttribute('selected');
 					
 					if($value === null)
 						return $el;
 					
-					$option = $el->querySelector('option[value="' . $value . '"]');
+					$option = $el->find('option[value="' . $value . '"]')->first();
 					
 					if(!$option)
 						trigger_error('Option with value "' . $value . '" not found in "' . ($el->getAttribute('name')) . '"', E_USER_WARNING);
@@ -853,7 +913,11 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					if(!($node instanceof DOMElement))
 						throw new \Exception("Element must be a DOMElement");
 
-					$el->appendChild( $node->cloneNode(true) );
+					// NB: Only clone nodes when appending to multiple targets
+					if(count($this->container) == 1)
+						$el->appendChild( $node );
+					else
+						$el->appendChild( $node->cloneNode(true) );
 				}
 			}
 			else if(is_string($subject))
@@ -882,7 +946,11 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					if(!($node instanceof DOMElement))
 						throw new \Exception("Element must be a DOMElement");
 
-					$el->insertBefore($node->cloneNode(true), $originalFirst);
+					// NB: Only clone nodes when appending to multiple targets
+					if(count($this->container) == 1)
+						$el->insertBefore($node, $originalFirst);
+					else
+						$el->insertBefore($node->cloneNode(true), $originalFirst);
 				}
 			}
 			else if(is_string($subject))
@@ -890,7 +958,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 				$el->insertBefore( $el->ownerDocument->createTextNode( $subject ), $el->firstChild );
 			}
 			else if($subject instanceof DOMElement)
-				$el->insertBefore($subject->cloneNode(true), $el->firstChild);
+			{
+				if(count($this->container) == 1)
+					$el->insertBefore($subject, $el->firstChild);
+				else
+					$el->insertBefore($subject->cloneNode(true), $el->firstChild);
+			}
 			else
 				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMQueryResults, an instance of DOMElement or a string");
 		}
@@ -923,7 +996,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 						throw new \Exception("Element must be a DOMElement");
 
 					if(!$next)
-						$el->parentNode->append($node->cloneNode(true));
+						$el->parentNode->appendChild($node->cloneNode(true));
 					else
 						$el->parentNode->insertBefore($node->cloneNode(true), $next);
 				}
@@ -936,14 +1009,16 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					$node = $subject->cloneNode(true);
 
 				if(!$next)
-					$el->parentNode->append($node);
+					$el->parentNode->appendChild($node);
 				else
 					$el->parentNode->insertBefore($node, $next);
 			}
 			else
 				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMQueryResults, an instance of DOMElement or a string");
+	
+			$el->parentNode->removeChild($el);
 		}
 
-		return $el;
+		return $this;
 	}
 }

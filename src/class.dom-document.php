@@ -52,7 +52,7 @@ class DOMDocument extends \DOMDocument
 				break;
 			
 			case "body":
-				return $this->querySelector("body");
+				return $this->find("body");
 				break;
 		}
 	}
@@ -64,10 +64,34 @@ class DOMDocument extends \DOMDocument
 	 */
 	public function __call($name, $arguments)
 	{
-		if(method_exists('\\PerryRylance\\DOMDocument\\DOMElement', $name))
+		$method = $name;
+
+		switch($name)
 		{
-			$el = $this->getDocumentElementSafe();
-			return call_user_func_array(array($el, $name), $arguments);
+			case "querySelector":
+			case "querySelectorAll":
+
+				trigger_error("querySelector and querySelectorAll are deprecated on DOMDocument. It is recommended to use DOMDocument::find instead", E_USER_WARNING);
+
+				$method = "find";	// NB: Backwards compatibility
+
+				break;
+			
+			default:
+				break;
+		}
+
+		if(method_exists('\\PerryRylance\\DOMDocument\\DOMQueryResults', $method))
+		{
+			$el			= $this->getDocumentElementSafe();
+			$set		= new DOMQueryResults([$el]);
+
+			$result		= call_user_func_array(array($set, $method), $arguments);
+
+			if($name == "querySelector")
+				return $result->first(); // NB: Backward compatibility
+
+			return $result;
 		}
 		
 		throw new \Exception("No such method $name");
@@ -202,7 +226,7 @@ class DOMDocument extends \DOMDocument
 		$result = '';
 		
 		if(property_exists($this, 'documentElement'))
-			$body = $this->querySelector('body');
+			$body = $this->find('body')->first();
 		
 		if(!$body)
 			$body = $this->getDocumentElementSafe();
@@ -246,5 +270,21 @@ class DOMDocument extends \DOMDocument
 	{
 		if(empty($this->getDocumentElementSafe()))
 			throw new \Exception('Document is empty');
+	}
+
+	public function create($html)
+	{
+		$div		= $this->createElement("div");
+		$set		= new DOMQueryResults($div);
+		$arr		= [];
+
+		$set->html($html);
+
+		// NB: Clone nodes here otherwise when they go out of scope, they're garbage collected
+
+		foreach($set->first()->childNodes as $node)
+			$arr	[]= $node->cloneNode(true);
+
+		return		new DOMQueryResults($arr);
 	}
 }
