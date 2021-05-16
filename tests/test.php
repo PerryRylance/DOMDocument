@@ -410,6 +410,41 @@ $tests = [
 			return !$fragmentTriggeredError && $fragment->html == "<div>Test fragment</div>";
 			
 		}
+	],
+
+	[
+		"caption" => "List population",
+
+		"operation" => function() {
+
+			global $document;
+
+			$template = $document->find("li.template");
+			$container = $template->parent();
+			$template->remove();
+
+			$data = [];
+
+			for($i = 1; $i <= 20; $i++)
+				$data []= $i;
+			
+			foreach($data as $i)
+			{
+				$li = $template->duplicate();
+				$li->text($i);
+
+				$container->append($li);
+			}
+
+		},
+
+		"assertion" => function() {
+
+			global $document;
+
+			return count( $document->find("ul")->children() ) == 20;
+
+		}
 	]
 	
 ];

@@ -365,8 +365,8 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			return $result;
 		}
 
-		if(!is_string($text))
-			throw new \Exception("Input must be text");
+		if(!is_scalar($text))
+			throw new \Exception("Input must be scalar");
 
 		$this->clear();
 
