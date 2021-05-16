@@ -70,7 +70,7 @@ class DOMDocument extends \DOMDocument
 			return call_user_func_array(array($el, $name), $arguments);
 		}
 		
-		throw new \Exception("No such method");
+		throw new \Exception("No such method $name");
 	}
 	
 	/**
@@ -96,7 +96,7 @@ class DOMDocument extends \DOMDocument
 			$options['disable_html_ns'] = true;
 		
 		// NB: Hack to suppress doctype warning when dealing with fragments. This isn't ideal, but it's safe to assume HTML5 here, so we will simply add a doctype if it's not present.
-		if(!preg_match('/^<!DOCTYPE/i', $src))b8c
+		if(!preg_match('/^<!DOCTYPE/i', $src))
 			$src = "<!DOCTYPE html>$src";
 		
 		$html5 = new \Masterminds\HTML5([
