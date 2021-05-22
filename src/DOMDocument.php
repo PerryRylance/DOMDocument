@@ -2,8 +2,8 @@
 
 namespace PerryRylance;
 
-require_once(__DIR__ . '/dom-document/class.dom-element.php');
-require_once(__DIR__ . '/dom-document/class.dom-query-results.php');
+require_once(__DIR__ . '/DOMDocument/DOMElement.php');
+require_once(__DIR__ . '/DOMDocument/DOMQueryResults.php');
 
 use PerryRylance\DOMDocument\DOMElement;
 use PerryRylance\DOMDocument\DOMQueryResults;
