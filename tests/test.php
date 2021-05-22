@@ -1,12 +1,11 @@
 <?php
 
-require_once('../vendor/autoload.php');
-require_once('../src/class.dom-document.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 use \PerryRylance\DOMDocument as DOMDocument;
 
 $document = new DOMDocument();
-$document->load("sample.html");
+$document->load(__DIR__ . "/sample.html");
 
 $tests = [
 	[
