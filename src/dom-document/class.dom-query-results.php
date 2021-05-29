@@ -694,16 +694,11 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					{
 						case 'radio':
 						case 'checkbox':
-						    if ($el->hasAttribute('checked')) {
-						        if ($el->hasAttribute('value')) {
-						            return $el->getAttribute('value');
-                                }
-
-						        return true;
+                            if ($el->hasAttribute('value')) {
+                                return $el->getAttribute('value');
                             }
 
-							return false;
-						
+                            return 'on';
 						default:
 							return $el->getAttribute('value');
 					}
