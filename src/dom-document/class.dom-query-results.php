@@ -694,13 +694,18 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					{
 						case 'radio':
 						case 'checkbox':
-							// TODO: This is a poor design pattern really. This might create confusion if developers expect this method to return the value attribute, which is what I would expect.
-							return $el->hasAttribute('checked');
-							break;
+						    if ($el->hasAttribute('checked')) {
+						        if ($el->hasAttribute('value')) {
+						            return $el->getAttribute('value');
+                                }
+
+						        return true;
+                            }
+
+							return false;
 						
 						default:
 							return $el->getAttribute('value');
-							break;
 					}
 					break;
 					
