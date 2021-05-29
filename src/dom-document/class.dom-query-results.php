@@ -882,6 +882,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			if(!$this->first())
 				return null;
 
+			// if the attribute doesn't exist, return null, as the implementation of the PHP \DOMElement
+            // class would return an empty string
+			if (!$this->first()->hasAttribute($arg)) {
+			    return null;
+            }
+
 			return $this->first()->getAttribute($arg);
 		}
 
