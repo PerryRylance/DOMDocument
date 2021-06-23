@@ -277,7 +277,7 @@ class DOMDocument extends \DOMDocument
 		$set		= new DOMQueryResults($div);
 		$arr		= [];
 
-		$set->html($html);
+		$set->html( trim($html) );
 
 		// NB: Clone nodes here otherwise when they go out of scope, they're garbage collected
 
