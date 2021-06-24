@@ -10,6 +10,8 @@ use PerryRylance\DOMDocument\DOMQueryResults;
 
 /**
  * This is the main class which builds on top of PHP's native DOMDocument
+ *
+ * @mixin DOMQueryResults
  */
 class DOMDocument extends \DOMDocument
 {
