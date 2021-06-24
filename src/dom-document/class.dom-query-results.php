@@ -32,8 +32,11 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 			// NB: Sanity check
 			foreach($this->container as $el)
-				if(!($el instanceof DOMElement))
-					throw new \Exception("All elements must be instances of DOMElement");
+				if(!($el instanceof \DOMNode))
+				{
+					$className = get_class($el);
+					throw new \Exception("All elements must be instances of DOMElement, $className given");
+				}
 		}
 	}
 	
@@ -914,6 +917,15 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		return $this;
 	}
 
+	public function removeAttr($name)
+	{
+		foreach($this->container as $node)
+			if($node instanceof DOMElement)
+				$node->removeAttribute($name);
+		
+		return $this;
+	}
+
 	/**
 	 * Method for working with data- attributes on this set
 	 * @param null|string|array $arg If both arguments are null / not provided, this function will return all data- attributes as an associative array. If a string is provided, it will be treated as a name and the value of the relevant data- attribute will be returned. If an array is provided, it will be used to set multiple data- attributes on the set.
@@ -1068,8 +1080,8 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			{
 				foreach($subject as $node)
 				{
-					if(!($node instanceof DOMElement))
-						throw new \Exception("Element must be a DOMElement");
+					if(!($node instanceof \DOMNode))
+						throw new \Exception("Element must be a DOMNode");
 
 					// NB: Only clone nodes when appending to multiple targets
 					if(count($this->container) == 1)
@@ -1098,7 +1110,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 * @throws \Exception When the supplied argument is not a DOMElement, DOMQueryResults, array or string
 	 * @throws \Exception When an array is supplied with a non-DOMElement element
 	 */
-	public function prepend()
+	public function prepend($subject)
 	{
 		foreach($this->container as $el)
 		{
