@@ -415,7 +415,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			if(!$this->first())
 				return null; // NB: Undefined in jQuery
 			
-			return $this->first()->html;
+			$result = "";
+
+			for($node = $this->first()->firstChild; $node != null; $node = $node->nextSibling)
+				$result .= $node->ownerDocument->saveHTML($node);
+			
+			return $result;
 		}
 
 		$temp = new DOMDocument();

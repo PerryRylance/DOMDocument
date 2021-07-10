@@ -534,6 +534,27 @@ $tests = [
 			return $document->find("input[type='radio'][value='a']")->is(":checked");
 
 		}
+	],
+
+	[
+		"caption" => "html() method",
+
+		"operation" => function() {
+
+			global $document;
+
+			$document->find("#html-method-test")->html("<span>I should be a span</span>");
+
+		},
+
+		"assertion" => function() {
+
+			global $document;
+
+			return $document->find("#html-method-test")->html() == "<span>I should be a span</span>";
+
+		}
+
 	]
 	
 ];
