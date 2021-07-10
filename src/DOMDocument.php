@@ -97,6 +97,13 @@ class DOMDocument extends \DOMDocument
 		
 		throw new \Exception("No such method $name");
 	}
+
+	public function shorthand()
+	{
+		return function($subject) {
+			return new DOMQueryResults($subject);
+		};
+	}
 	
 	/**
 	 * Loads the supplied HTML string

@@ -555,6 +555,46 @@ $tests = [
 
 		}
 
+	],
+
+	[
+		"caption" => "Shorthand method",
+
+		"operation" => function() {
+
+			global $document;
+
+			$_ = $document->shorthand();
+
+			$document->find("#shorthand-test li")->each(function($el) use ($_) {
+
+				$_($el)->text("All good");
+
+			});
+
+		},
+
+		"assertion" => function() {
+
+			global $document;
+
+			$_ = $document->shorthand();
+
+			$failed = false;
+
+			$document->find("#shorthand-test li")->each(function($el) use ($_, $failed) {
+
+				if($failed)
+					return false;
+
+				if($_($el)->text() != "All good")
+					$failed = true;
+
+			});
+
+			return !$failed;
+
+		}
 	]
 	
 ];
