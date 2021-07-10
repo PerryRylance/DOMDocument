@@ -884,6 +884,10 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		{
 			if(!$this->first())
 				return null;
+			
+			// NB: If the attribute doesn't exist, return null, as the implementation of the PHP \DOMElement class would return an empty string. This is not how jQuery behaves. With thanks to https://github.com/warhuhn/
+			if(!$this->first()->hasAttribute($arg))
+				return null;
 
 			return $this->first()->getAttribute($arg);
 		}
