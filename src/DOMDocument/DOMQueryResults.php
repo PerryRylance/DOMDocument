@@ -692,19 +692,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			switch(strtolower($el->nodeName))
 			{
 				case 'input':
-					$type = ($el->hasAttribute('type') ? $el->getAttribute('type') : 'text');
-					switch($type)
-					{
-						case 'radio':
-						case 'checkbox':
-							// TODO: This is a poor design pattern really. This might create confusion if developers expect this method to return the value attribute, which is what I would expect.
-							return $el->hasAttribute('checked');
-							break;
-						
-						default:
-							return $el->getAttribute('value');
-							break;
-					}
+					$value = $el->getAttribute('value');
+
+					if(empty($value))
+						return null; // NB: jQuery will return null when no attribute is present, where \DOMElement::getAttribute would return an empty string. Mirror jQuery behaviour here.
+					
+					return $value;
 					break;
 					
 				case 'select':
@@ -736,22 +729,26 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			switch(strtolower($el->nodeName))
 			{
 				case 'textarea':
+
+					$set = new DOMQueryResults($el);
 				
-					$el->clear();
+					$set->clear();
 					$el->appendChild( $el->ownerDocument->createTextNode($value) );
 					
 					break;
 				
 				case 'select':
+
+					$set = new DOMQueryResults($el);
 					
-					$deselect = $el->find('option[selected]');
+					$deselect = $set->find('option[selected]');
 					foreach($deselect as $d)
 						$d->removeAttribute('selected');
 					
 					if($value === null)
 						return $el;
 					
-					$option = $el->find('option[value="' . $value . '"]')->first();
+					$option = $set->find('option[value="' . $value . '"]')->first();
 					
 					if(!$option)
 						trigger_error('Option with value "' . $value . '" not found in "' . ($el->getAttribute('name')) . '"', E_USER_WARNING);
@@ -761,33 +758,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					break;
 					
 				case 'input':
-					
-					if(!$el->hasAttribute('type') || $el->getAttribute('type') == 'text')
-					{
-						if(is_scalar($value))
-							$el->setAttribute('value', $value);
-					}
-					else switch(strtolower($el->getAttribute('type')))
-					{
-						case 'radio':
-							if($el->hasAttribute('value') && $el->getAttribute('value') == $value)
-								$el->setAttribute('checked', 'checked');
-							else
-								$el->removeAttribute('checked');
-							break;
-							
-						case 'checkbox':
-							if(!empty($value) && $value != false)
-								$el->setAttribute('checked', 'checked');
-							else
-								$el->removeAttribute('checked');
-							break;
-							
-						default:
-							$el->setAttribute('value', $value);
-							break;
-					}
-					
+					$el->setAttribute("value", $value);
 					break;
 				
 				default:
@@ -916,6 +887,27 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					
 					$el->setAttribute($key, $value);
 				}
+		}
+
+		return $this;
+	}
+
+	public function prop($name, $value=null)
+	{
+		if(empty($this->container))
+			return null; // NB: jQuery would return undefined here
+		
+		$el = $this->first();
+
+		if($value === null)
+			return preg_match('/' . preg_quote($name) . '/i', $el->getAttribute($name));
+
+		foreach($this->container as $el)
+		{
+			if($value)
+				$el->setAttribute($name, $name);
+			else
+				$el->removeAttribute($name);
 		}
 
 		return $this;

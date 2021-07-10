@@ -1,6 +1,7 @@
 <?php
 
 require_once(__DIR__ . '/../vendor/autoload.php');
+require_once(__DIR__ . '/../src/DOMDocument.php');
 
 use \PerryRylance\DOMDocument as DOMDocument;
 
@@ -464,6 +465,73 @@ $tests = [
 			global $document;
 
 			return $document->find("a#blog")->attr("href") == "https://perryrylance.com/development/journal/domdocument-2-0-0-release";
+
+		}
+	],
+
+	[
+		"caption" => "Checkbox and radio value handling",
+
+		"operation" => function() {
+
+			global $document;
+
+			$input = $document->find("input[type='checkbox'][value='4']");
+			$input->val("checkbox passed");
+
+			$input = $document->find("input[type='radio'][value='b']");
+			$input->val("radio passed");
+
+		},
+
+		"assertion" => function() {
+
+			global $document;
+
+			return $document->find("input[type='checkbox'][value='checkbox passed']")->val() == "checkbox passed"
+				&&
+				$document->find("input[type='radio'][value='radio passed']")->val() == "radio passed";
+		}
+	],
+
+	[
+		"caption" => "Checkbox prop handling",
+
+		"operation" => function() {
+
+			global $document;
+
+			$after = $document->create("<div>These should be unchecked</div>");
+
+			$document->find("input[type='checkbox']:checked")->prop("checked", false)->after($after);
+
+		},
+
+		"assertion" => function() {
+
+			global $document;
+
+			return count($document->find("input[type='checkbox']:checked")) == 0;
+
+		}
+	],
+
+	[
+		"caption" => "Radio prop handling",
+
+		"operation" => function() {
+
+			global $document;
+
+			$document->find("input[type='radio'][value='a']")->prop("checked", true);
+
+		},
+
+		"assertion" => function() {
+
+			global $document;
+
+			return $document->find("input[type='radio'][value='a']")->is(":checked");
 
 		}
 	]
