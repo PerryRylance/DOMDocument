@@ -60,8 +60,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		
 		foreach($this->container as $element)
 		{
-			// NB: PHP >= 8 includes a native remove method, PHP < 8 does not, we use a magic method for compatibility with both. This means the method_exists check below will fail. We do a special check for this case here.
-			if(!method_exists($element, $name) && !$element->hasCompatibilityMethod($name))
+			if(!method_exists($element, $name))
 				throw new \Exception("No such method '$name' on " . get_class($element));
 			
 			$result = call_user_func_array(
@@ -162,7 +161,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			throw new \Exception("Argument must be callable");
 		
 		foreach($this->container as $element)
-			$callback($element);
+			$callback(new DOMQueryResults($element));
 		
 		return $this;
 	}
@@ -415,10 +414,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			if(!$this->first())
 				return null; // NB: Undefined in jQuery
 			
-			$result = "";
-
-			for($node = $this->first()->firstChild; $node != null; $node = $node->nextSibling)
-				$result .= $node->ownerDocument->saveHTML($node);
+			$result = $this->first()->ownerDocument->saveHTML($this->first());
 			
 			return $result;
 		}
