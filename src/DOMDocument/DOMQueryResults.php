@@ -84,6 +84,25 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		return $this;
 	}
 	
+	public function __get($name)
+	{
+		switch($name)
+		{
+			case "length":
+				return count($this->container);
+				break;
+			
+			case "html":
+				$result = "";
+
+				foreach($this->container as $el)
+					$result .= $el->html;
+
+				return $result;
+				break;
+		}
+	}
+
 	public function offsetExists($offset)
 	{
 		return isset($this->container[$offset]);
@@ -208,7 +227,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		if(count($this->container) == 0)
 			return null;
 		
-		return $this->container[0];
+		return new DOMQueryResults( $this->container[0] );
 	}
 	
 	/**
@@ -221,7 +240,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		if(count($this->container) == 0)
 			return null;
 	
-		return $this->container[count($this->container) - 1];
+		return new DOMQueryResults( $this->container[count($this->container) - 1] );
 	}
 
 	/**
@@ -334,11 +353,11 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	{
 		if(is_string($arg))
 		{
-			if(!$this->first())
+			if(!$this->first()->length)
 				return null;
 			
 			if($val == DOMDocument::UNDEFINED)
-				return $this->first()->getInlineStyle($arg);
+				return $this->first()[0]->getInlineStyle($arg);
 			
 			if(!is_string($val) && !is_null($val))
 				throw new \Exception("When a string is supplied as the first argument, the second argument must be a string or null");
@@ -376,7 +395,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 */
 	public function text($text=null)
 	{
-		if($text == null)
+		if($text === null)
 		{
 			$result = "";
 
@@ -387,7 +406,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		}
 
 		if(!is_scalar($text))
+		{
+			var_dump($text);
+			exit;
+
 			throw new \Exception("Input must be scalar");
+		}
 
 		$this->clear();
 
@@ -412,13 +436,22 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	{
 		// NB: Getter text() returns text for all nodes, html() only returns the HTML string for the first node in jQuery. This library mirrors that behaviour.
 
-		if($html == null)
+		if(is_string($html) && $html == "")
 		{
-			if(!$this->first())
+			$this->clear();
+			return $this;
+		}
+
+		if($html === null)
+		{
+			if(!$this->length)
 				return null; // NB: Undefined in jQuery
 			
-			$result = $this->first()->ownerDocument->saveHTML($this->first());
-			
+			$result = "";
+
+			foreach($this->first()->children() as $child)
+				$result .= $child->html;
+
 			return $result;
 		}
 
@@ -433,7 +466,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			"disable_html_ns" => true
 		]);
 
-		$body = $temp->find('#domdocument-import-payload___')->first();
+		$body = $temp->find('#domdocument-import-payload___')->first()[0];
 
 		foreach($this->container as $el)
 		{
@@ -457,8 +490,10 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	public function clear()
 	{
 		foreach($this->container as $el)
+		{
 			while($el->childNodes->length)
 				$el->removeChild($el->firstChild);
+		}
 
 		return $this;
 	}
@@ -474,7 +509,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			throw new \Exception("Argument must be an instance of DOMElement or DOMQueryResults");
 		
 		if($template instanceof DOMQueryResults)
-			$template = $template->first();	// NB: Wrap in the first node of the set, mirror jQuery behaviour
+			$template = $template->first()[0];	// NB: Wrap in the first node of the set, mirror jQuery behaviour
 
 		foreach($this->container as $el)
 		{
@@ -502,7 +537,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			throw new \Exception("Argument must be an instance of DOMElement or DOMQueryResults");
 
 		if($template instanceof DOMQueryResults)
-			$template = $template->first();	// NB: Wrap in the first node of the set, mirror jQuery behaviour
+			$template = $template->first()[0];	// NB: Wrap in the first node of the set, mirror jQuery behaviour
 
 		foreach($this->container as $el)
 		{
@@ -611,7 +646,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		
 		$results = [];
 
-		for($node = $this->last()->previousSibling; $node != null; $node = $node->previousSibling)
+		for($node = $this->last()[0]->previousSibling; $node != null; $node = $node->previousSibling)
 		{
 			if($node->nodeType != XML_ELEMENT_NODE)
 				continue;
@@ -630,12 +665,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 */
 	public function following($selector=null)
 	{
-		if(!$this->first())
+		if(!$this->length)
 			return new DOMQueryResults([]);
 		
 		$results = [];
 		
-		for($node = $this->first()->nextSibling; $node != null; $node = $node->nextSibling)
+		for($node = $this->first()[0]->nextSibling; $node != null; $node = $node->nextSibling)
 		{
 			if($node->nodeType != XML_ELEMENT_NODE)
 				continue;
@@ -688,10 +723,10 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		// NB: Getter always returns value for first node
 		if($value == null)
 		{
-			if(!$this->first())
+			if(!$this->length)
 				return null;
 
-			$el = $this->first();
+			$el = $this->first()[0];
 
 			switch(strtolower($el->nodeName))
 			{
@@ -857,14 +892,16 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		
 		if($val === null && is_string($arg))
 		{
-			if(!$this->first())
+			if(!$this->first()->length)
 				return null;
 			
+			$first = $this->first()[0];
+
 			// NB: If the attribute doesn't exist, return null, as the implementation of the PHP \DOMElement class would return an empty string. This is not how jQuery behaves. With thanks to https://github.com/warhuhn/
-			if(!$this->first()->hasAttribute($arg))
+			if(!$first->hasAttribute($arg))
 				return null;
 
-			return $this->first()->getAttribute($arg);
+			return $first->getAttribute($arg);
 		}
 
 		if(is_string($arg))
@@ -901,10 +938,17 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		if(empty($this->container))
 			return null; // NB: jQuery would return undefined here
 		
-		$el = $this->first();
+		$el = $this->first()[0];
 
 		if($value === null)
-			return preg_match('/' . preg_quote($name) . '/i', $el->getAttribute($name));
+		{
+			$result = preg_match('/' . preg_quote($name) . '/i', $el->getAttribute($name));
+
+			if($result === false)
+				throw new \Exception("Error in pattern matching in prop");
+
+			return $result == 1;
+		}
 
 		foreach($this->container as $el)
 		{
@@ -943,7 +987,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			if($val != null)
 				throw new \Exception("Argument is null but value is provided, invalid arguments");
 			
-			if(!$this->first())
+			if(!$this->length)
 				return null;
 
 			// Both arguments are null, return all data
@@ -955,7 +999,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			
 			return $results;
 		}
-
+		
 		if(is_string($arg))
 		{
 			if(is_scalar($val))
@@ -967,10 +1011,10 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			}
 			else if($val == null)
 			{
-				if(!$this->first())
+				if(!$this->length)
 					return null;
 
-				return $this->first()->getAttribute("data-$arg");
+				return $this->first()[0]->getAttribute("data-$arg");
 			}
 			else
 				throw new \Exception("Invalid arguments");
@@ -1000,7 +1044,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 */
 	public function after($arg)
 	{
-		if(!$this->first())
+		if(!$this->length)
 			return $this; // NB: Need ownerDocument below, so if we have no nodes, just bail here.
 
 		if($arg instanceof DOMElement)
@@ -1008,7 +1052,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		else if(is_array($arg) || $arg instanceof DOMQueryResults)
 			$nodes = $arg;
 		else if(is_string($arg))
-			$nodes = [$this->first()->ownerDocument->createTextNode($arg)];
+			$nodes = [$this->first()[0]->ownerDocument->createTextNode($arg)];
 		else
 			throw new \Exception("Invalid argument");
 	
@@ -1042,7 +1086,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 */
 	public function before($arg)
 	{
-		if(!$this->first())
+		if(!$this->length)
 			return $this; // NB: Need ownerDocument below, so if we have no nodes, just bail here.
 
 		if($arg instanceof DOMElement)

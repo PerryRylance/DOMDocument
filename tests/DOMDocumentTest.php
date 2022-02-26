@@ -26,7 +26,7 @@ final class DOMDocumentTest extends TestCase
 		$before	= $document->find(".before");
 		$after	= $document->find(".after");
 		
-		if($before->first()->isBefore($after->first()))
+		if($before->first()->isBefore($after->first()[0]))
 		{
 			$before->text("This element is before");
 			$after->text("This element is after");
@@ -126,9 +126,6 @@ final class DOMDocumentTest extends TestCase
 		$video = $document->find("video");
 		$video->text("");
 
-		var_dump($video->text());
-		exit;
-
 		$this->assertTrue( $video->text() == "" );
 	}
 
@@ -187,12 +184,12 @@ final class DOMDocumentTest extends TestCase
 			"three" => 3
 		]);
 
-		$this->assertTrue(
-			$video->data("test") == "123"
-			&& $video->data("one") == "1"
-			&& $video->data("two") == "2"
-			&& $video->data("three") == "3"
-		);
+		define("DEBUG", true);
+
+		$this->assertEquals("123", $video->data("test"));
+		$this->assertEquals("1", $video->data("one"));
+		$this->assertEquals("2", $video->data("two"));
+		$this->assertEquals("3", $video->data("three"));
 	}
 
 	public function testNodeRemoval()
@@ -302,6 +299,7 @@ final class DOMDocumentTest extends TestCase
 
 		$a		= $document->find("a#blog");
 		$href	= $a->attr("href");
+
 		$a->attr("href", "$href/development/journal/domdocument-2-0-0-release");
 
 		$this->assertTrue( $a->attr("href") == "https://perryrylance.com/development/journal/domdocument-2-0-0-release" );
@@ -314,7 +312,7 @@ final class DOMDocumentTest extends TestCase
 		$input = $document->find("input[type='checkbox'][value='4']");
 		$input->val("checkbox passed");
 
-		$this->assertTrue( $input->val() == "checkbox passed" );
+		$this->assertEquals( "checkbox passed", $input->val() );
 	}
 
 	public function testRadioValueHandling()
@@ -358,7 +356,7 @@ final class DOMDocumentTest extends TestCase
 		
 		$el->html($html);
 
-		$this->assertTrue( $el->html() == strip_tags($html) );
+		$this->assertEquals( $html, $el->html() );
 	}
 
 	public function testShorthandMethod()

@@ -301,7 +301,7 @@ class DOMDocument extends \DOMDocument
 
 		// NB: Clone nodes here otherwise when they go out of scope, they're garbage collected
 
-		foreach($set->first()->childNodes as $node)
+		foreach($set->first()[0]->childNodes as $node)
 			$arr	[]= $node->cloneNode(true);
 
 		return		new DOMQueryResults($arr);
