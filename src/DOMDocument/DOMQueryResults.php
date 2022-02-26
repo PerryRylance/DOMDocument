@@ -391,6 +391,9 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 		$this->clear();
 
+		if($text == "")
+			return $this;
+
 		foreach($this->container as $el)
 		{
 			$node = $el->ownerDocument->createTextNode($text);
