@@ -143,8 +143,19 @@ class DOMDocument extends \DOMDocument
 			
 			Parent::loadHTML($src);
 		}
+
+		$this->onLoaded();
 		
 		return $this;
+	}
+
+	/**
+	 * Callback which fires after the HTML has been parsed and loaded, but before loadHTML returns. Useful for controlling the execution order for operations spread across an inheritance chain.
+	 * @return null
+	 */
+	protected function onLoaded()
+	{
+		
 	}
 	
 	/**
