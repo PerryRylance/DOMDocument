@@ -3,6 +3,14 @@
 use PerryRylance\DOMDocument;
 use PHPUnit\Framework\TestCase;
 
+class DOMDocumentBadInit extends DOMDocument
+{
+	public function __construct()
+	{
+		$this->loadHTML("This should throw a bad state exception, because the parent class is not initialized");
+	}
+}
+
 final class DOMDocumentTest extends TestCase
 {
 	private function getDocument()
@@ -384,5 +392,12 @@ final class DOMDocumentTest extends TestCase
 		});
 
 		$this->assertTrue( !$failed );
+	}
+
+	public function testCloneNode()
+	{
+		$this->expectException(Exception::class);
+
+		$document = new DOMDocumentBadInit();
 	}
 }

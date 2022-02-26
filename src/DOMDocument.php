@@ -15,6 +15,8 @@ use PerryRylance\DOMDocument\DOMQueryResults;
  */
 class DOMDocument extends \DOMDocument
 {
+	private $constructorCalled = false; // NB: Used to signal bad state, otherwise we get silent failure when trying to loadHTML before calling constructor
+
 	const UNDEFINED = "b0814351-6e51-4134-a77b-8e5fbec4e026"; // NB: Used to differentiate between explicit null and argument not supplied, for example in DOMQueryResults::css
 
 	/**
@@ -23,7 +25,8 @@ class DOMDocument extends \DOMDocument
 	public function __construct($version='1.0', $encoding='UTF-8')
 	{
 		\DOMDocument::__construct($version, $encoding);
-		
+	
+		$this->constructorCalled = true;
 		$this->registerNodeClass('DOMElement', 'PerryRylance\DOMDocument\DOMElement');
 	}
 	
@@ -114,6 +117,9 @@ class DOMDocument extends \DOMDocument
 	 */
 	public function loadHTML($src, $options=array())
 	{
+		if(!$this->constructorCalled)
+			throw new \Exception("Bad state (did you try to loadHTML before calling constructor?)");
+
 		if(empty($options))
 			$options = [];
 		
