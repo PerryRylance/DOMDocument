@@ -400,4 +400,45 @@ final class DOMDocumentTest extends TestCase
 
 		$document = new DOMDocumentBadInit();
 	}
+
+	public function testToArray()
+	{
+		$document = $this->getDocument();
+
+		$labels = $document->find("label");
+		$arr = $labels->toArray();
+
+		array_unshift($arr, "oops");
+
+		$this->assertNotEquals( "oops", $labels[0] );
+	}
+
+	public function testPhpEvaluation()
+	{
+		$document = new DOMDocument();
+		$document->load(__DIR__ . "/test.php");
+
+		$this->assertEquals( phpversion(), $document->find("body")->text() );
+	}
+
+	public function testNoPhpEvaluation()
+	{
+		$document = new DOMDocument();
+		$document->load(__DIR__ . "/test.php", [
+			DOMDocument::OPTION_EVALUATE_PHP => false
+		]);
+
+		$this->assertTrue( preg_match('/<\?php/', $document->saveHTML()) === 1 );
+	}
+
+	public function testImport()
+	{
+		$document = $this->getDocument();
+		$text = "Ahoy there!";
+		$html = "<div id='import-test'>$text</div>";
+
+		$document->find("body")->import($html);
+
+		$this->assertEquals( $text, $document->find("#import-test")->text() );
+	}
 }

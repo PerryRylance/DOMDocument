@@ -3,21 +3,23 @@
 namespace PerryRylance;
 
 require_once(__DIR__ . '/DOMDocument/DOMElement.php');
-require_once(__DIR__ . '/DOMDocument/DOMQueryResults.php');
+require_once(__DIR__ . '/DOMDocument/DOMObject.php');
 
 use PerryRylance\DOMDocument\DOMElement;
-use PerryRylance\DOMDocument\DOMQueryResults;
+use PerryRylance\DOMDocument\DOMObject;
 
 /**
  * This is the main class which builds on top of PHP's native DOMDocument
  *
- * @mixin DOMQueryResults
+ * @mixin DOMObject
  */
 class DOMDocument extends \DOMDocument
 {
+	const OPTION_EVALUATE_PHP	= "executePHP"; // TODO: Change at some point to match up, find as a constant for now
+
 	private $constructorCalled = false; // NB: Used to signal bad state, otherwise we get silent failure when trying to loadHTML before calling constructor
 
-	const UNDEFINED = "b0814351-6e51-4134-a77b-8e5fbec4e026"; // NB: Used to differentiate between explicit null and argument not supplied, for example in DOMQueryResults::css
+	const UNDEFINED = "b0814351-6e51-4134-a77b-8e5fbec4e026"; // NB: Used to differentiate between explicit null and argument not supplied, for example in DOMObject::css
 
 	/**
 	 * Constructor for the DOMDocument
@@ -88,10 +90,10 @@ class DOMDocument extends \DOMDocument
 				break;
 		}
 
-		if(method_exists('\\PerryRylance\\DOMDocument\\DOMQueryResults', $method))
+		if(method_exists('\\PerryRylance\\DOMDocument\\DOMObject', $method))
 		{
 			$el			= $this->getDocumentElementSafe();
-			$set		= new DOMQueryResults([$el]);
+			$set		= new DOMObject([$el]);
 
 			$result		= call_user_func_array(array($set, $method), $arguments);
 
@@ -104,7 +106,7 @@ class DOMDocument extends \DOMDocument
 	public function shorthand()
 	{
 		return function($subject) {
-			return new DOMQueryResults($subject);
+			return new DOMObject($subject);
 		};
 	}
 	
@@ -123,7 +125,7 @@ class DOMDocument extends \DOMDocument
 		if(empty($options))
 			$options = [];
 		
-		if(isset($options['executePHP']) && $options['executePHP'])
+		if(isset($options[DOMDocument::OPTION_EVALUATE_PHP]) && $options[DOMDocument::OPTION_EVALUATE_PHP])
 		{
 			ob_start();
 			eval("?>$src");
@@ -167,7 +169,7 @@ class DOMDocument extends \DOMDocument
 	/**
 	 * Loads the named file
 	 * @param string $src The filename of the file to read from
-	 * @param array $options An array of options. Presently only executePHP is supported, this defaults to TRUE and will execute inline PHP
+	 * @param array $options An array of options. Presently only DOMDocument::OPTION_EVALUATE_PHP is supported, this defaults to TRUE and will execute inline PHP
 	 * @see https://github.com/Masterminds/html5-php#options for other options supported by the HTML5 parser
 	 * @return This document, for method chaining
 	 */
@@ -181,8 +183,8 @@ class DOMDocument extends \DOMDocument
 		
 		$contents = file_get_contents($filename);
 		
-		if(preg_match('/^php$/i', pathinfo($filename, PATHINFO_EXTENSION)) && !isset($options['executePHP']))
-			$options['executePHP'] = true;
+		if(preg_match('/^php$/i', pathinfo($filename, PATHINFO_EXTENSION)) && !isset($options[DOMDocument::OPTION_EVALUATE_PHP]))
+			$options[DOMDocument::OPTION_EVALUATE_PHP] = true;
 		
 		return $this->loadHTML($contents, $options);
 	}
@@ -248,27 +250,33 @@ class DOMDocument extends \DOMDocument
 	 */
 	public function saveInnerBody()
 	{
+		$body = null;
 		$result = '';
 		
 		if(property_exists($this, 'documentElement'))
-			$body = $this->find('body')->first();
+		{
+			$first = $this->find('body')->first();
+
+			if($first->length)
+				$body = $first[0];
+		}
 		
 		if(!$body)
 			$body = $this->getDocumentElementSafe();
 		
 		if(!$body)
 			return null;
-		
+
 		for($node = $body->firstChild; $node != null; $node = $node->nextSibling)
 			$result .= $this->saveHTML($node);
-		
+
 		return $result;
 	}
 	
 	/**
 	 * This function will import the specified content to be used inside this document.
 	 * @param mixed $subject The subject, a HTML fragment string, DOMElement from another document, or another DOMDocument.
-	 * @return DOMQueryResults The resulting element(s)
+	 * @return DOMObject The resulting element(s)
 	 */
 	public function import($subject)
 	{
@@ -286,7 +294,7 @@ class DOMDocument extends \DOMDocument
 		for($node = $body->firstChild; $node != null; $node = $node->nextSibling)
 			$arr []= $this->importNode($node, true);
 		
-		$results	= new DOMQueryResults($arr);
+		$results	= new DOMObject($arr);
 		
 		return $results;
 	}
@@ -300,7 +308,7 @@ class DOMDocument extends \DOMDocument
 	public function create($html)
 	{
 		$div		= $this->createElement("div");
-		$set		= new DOMQueryResults($div);
+		$set		= new DOMObject($div);
 		$arr		= [];
 
 		$set->html( trim($html) );
@@ -310,6 +318,6 @@ class DOMDocument extends \DOMDocument
 		foreach($set->first()[0]->childNodes as $node)
 			$arr	[]= $node->cloneNode(true);
 
-		return		new DOMQueryResults($arr);
+		return		new DOMObject($arr);
 	}
 }

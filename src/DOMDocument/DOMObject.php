@@ -5,9 +5,9 @@ namespace PerryRylance\DOMDocument;
 use PerryRylance\DOMDocument;
 
 /**
- * This class is used to represent a results set of matched elements, in much the same way as a jQuery array works. Any methods supported by DOMElement can be called on a DOMQueryResults list.
+ * This class is used to represent a results set of matched elements, in much the same way as a jQuery array works. Any methods supported by DOMElement can be called on a DOMObject list.
  */
-class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
+class DOMObject implements \ArrayAccess, \Countable, \Iterator
 {
 	private $index = 0;
 	private $container;
@@ -23,12 +23,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		{
 			if(is_array($arr))
 				$this->container = $arr;
-			else if($arr instanceof DOMQueryResults)
+			else if($arr instanceof DOMObject)
 				$this->container = $arr->toArray();
 			else if($arr instanceof DOMElement)
 				$this->container = [$arr];
 			else
-				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMQueryResults, DOMElement, or omitted");
+				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMObject, DOMElement, or omitted");
 
 			// NB: Sanity check
 			foreach($this->container as $el)
@@ -47,7 +47,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	}
 
 	/**
-	 * Magic method for function calls, this can be used to call any methods supported by DOMElement on the entire result set stored in this DOMQueryResults set
+	 * Magic method for function calls, this can be used to call any methods supported by DOMElement on the entire result set stored in this DOMObject set
 	 * @param string $name The name of the method to call
 	 * @param array $arguments The arguments which will be passed on to the corresponding method on DOMElement
 	 * @method mixed Mixed See DOMElement for a list of supported methods
@@ -68,7 +68,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 				$arguments
 			);
 			
-			if($result instanceof DOMQueryResults)
+			if($result instanceof DOMObject)
 			{
 				if($set == null)
 					$set = [];
@@ -79,7 +79,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		}
 		
 		if(is_array($set))
-			return new DOMQueryResults($set);
+			return new DOMObject($set);
 		
 		return $this;
 	}
@@ -142,7 +142,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	public function next($arg=null)
 	{
 		if(!empty($arg))
-			trigger_error("DOMQueryResults::next is an implementation of Iterator::next, which takes no arguments. Did you mean to call jQuery-like DOMQueryResults::following instead?", E_USER_WARNING);
+			trigger_error("DOMObject::next is an implementation of Iterator::next, which takes no arguments. Did you mean to call jQuery-like DOMObject::following instead?", E_USER_WARNING);
 
 		$this->index++;
 	}
@@ -171,7 +171,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Executes the supplied callback on the elements in this result set
 	 * @param callable $callback Any callable function
-	 * @return DOMQueryResults This result set, for method chaining
+	 * @return DOMObject This result set, for method chaining
 	 * @throws \Exception When the supplied argument is not callable
 	 */
 	public function each($callback)
@@ -180,7 +180,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			throw new \Exception("Argument must be callable");
 		
 		foreach($this->container as $element)
-			$callback(new DOMQueryResults($element));
+			$callback(new DOMObject($element));
 		
 		return $this;
 	}
@@ -188,7 +188,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Filters this result set using the given subject
 	 * @param string|callable $subject The subject to filter with. A string will be interpreted as a CSS selector, a callback can be used to implement custom filtering logic.
-	 * @return DOMQueryResults The filtered result set
+	 * @return DOMObject The filtered result set
 	 * @throws \Exception When the supplied subject is neither a string nor callable
 	 */
 	public function filter($subject)
@@ -214,7 +214,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 				$results []= $el;
 		}
 	
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 	
 	/**
@@ -225,9 +225,9 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	public function first()
 	{
 		if(count($this->container) == 0)
-			return null;
+			return new DOMObject();
 		
-		return new DOMQueryResults( $this->container[0] );
+		return new DOMObject( $this->container[0] );
 	}
 	
 	/**
@@ -240,13 +240,13 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		if(count($this->container) == 0)
 			return null;
 	
-		return new DOMQueryResults( $this->container[count($this->container) - 1] );
+		return new DOMObject( $this->container[count($this->container) - 1] );
 	}
 
 	/**
 	 * Finds any descendant elements which match the supplied CSS selector within this set.
 	 * @param string $selector The CSS selector
-	 * @return DOMQueryResults The result set matching the specified selector
+	 * @return DOMObject The result set matching the specified selector
 	 */
 	public function find($selector)
 	{
@@ -262,13 +262,13 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 		});
 
-		return new DOMQueryResults($result);
+		return new DOMObject($result);
 	}
 
 	/**
 	 * Returns this sets children, or if a selector is supplied, only children of this set  which match the selector
 	 * @param string $selector The CSS selector to match
-	 * @return DOMQueryResults Any children of this set which match the selector, or all children if no selector is specified
+	 * @return DOMObject Any children of this set which match the selector, or all children if no selector is specified
 	 */
 	public function children($selector=null)
 	{
@@ -284,17 +284,17 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		}
 		
 		if(!$selector)
-			return new DOMQueryResults($children);
+			return new DOMObject($children);
 		
 		$results = [];
 		
 		foreach($children as $child)
 		{
-			if((new DOMQueryResults($child))->is($selector))
+			if((new DOMObject($child))->is($selector))
 				$results []= $child;
 		}
 		
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 
 	/**
@@ -315,7 +315,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 	/**
 	 * Returns a deep clone of all elements in this set, equivalent to jQuery's clone method - clone is a reserved word in PHP
-	 * @return DOMQueryResults The cloned element
+	 * @return DOMObject The cloned element
 	 */
 	public function duplicate()
 	{
@@ -324,12 +324,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		foreach($this->container as $el)
 			$results []= $el->cloneNode(true);
 
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 
 	/**
 	 * Returns all direct child elements of this set
-	 * @return DOMQueryResults The children of this set
+	 * @return DOMObject The children of this set
 	 */
 	public function contents()
 	{
@@ -340,7 +340,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 				$results []= $node;
 		
 		// TODO: Is it sensible to return query results here? How will this handle non-element nodes?
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 
 	/**
@@ -391,7 +391,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Gets the text of all elements in the set, or sets the tewxt of all elements in the set
 	 * @param string|null $text Sets the value if a string is provided, gets if null is supplied
-	 * @return DOMQueryResults|string This set for method chaining if $text is not null, the textContent of all elements in the set if $text is null
+	 * @return DOMObject|string This set for method chaining if $text is not null, the textContent of all elements in the set if $text is null
 	 */
 	public function text($text=null)
 	{
@@ -430,7 +430,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Gets the HTML of the first node in the set, or sets the HTML of all nodes in the set
 	 * @param string|null $html Sets the HTML for all elements in the set if $html is a string, gets the HTML of the first element in this set if null is supplied
-	 * @return DOMQueryResults|string This set for method chaining if $html is not null, the HTML string representing the first element in this set if $html is null
+	 * @return DOMObject|string This set for method chaining if $html is not null, the HTML string representing the first element in this set if $html is null
 	 */
 	public function html($html=null)
 	{
@@ -485,7 +485,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 	/**
 	 * Empties all elements in this set by removing all the elements children, equivalent to jQuery's empty method - empty is a reserved word in PHP.
-	 * @return DOMQueryResults This set, for method chaining
+	 * @return DOMObject This set, for method chaining
 	 */
 	public function clear()
 	{
@@ -499,16 +499,16 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	}
 
 	/**
-	 * Wraps this set with the specified element or set, then replaces the elements with the wrapper. This does not presently support a function as input, like it's jQuery counterpart. If this set only contains a single node and $template is a DOMElement, $template will be injected directly into the DOM. If this set contains multiple elements then the wrapper will be cloned. If $template is a DOMQueryResults, only the first element will be used.
-	 * @param DOMElement|DOMQueryResults $wrapper The element or set to wrap this element with
-	 * @return DOMQueryResults This set, for method chaining
+	 * Wraps this set with the specified element or set, then replaces the elements with the wrapper. This does not presently support a function as input, like it's jQuery counterpart. If this set only contains a single node and $template is a DOMElement, $template will be injected directly into the DOM. If this set contains multiple elements then the wrapper will be cloned. If $template is a DOMObject, only the first element will be used.
+	 * @param DOMElement|DOMObject $wrapper The element or set to wrap this element with
+	 * @return DOMObject This set, for method chaining
 	 */
 	public function wrap($template)
 	{
-		if(!($template instanceof DOMElement || $template instanceof DOMQueryResults))
-			throw new \Exception("Argument must be an instance of DOMElement or DOMQueryResults");
+		if(!($template instanceof DOMElement || $template instanceof DOMObject))
+			throw new \Exception("Argument must be an instance of DOMElement or DOMObject");
 		
-		if($template instanceof DOMQueryResults)
+		if($template instanceof DOMObject)
 			$template = $template->first()[0];	// NB: Wrap in the first node of the set, mirror jQuery behaviour
 
 		foreach($this->container as $el)
@@ -527,16 +527,16 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	}
 
 	/**
-	 * Wraps the contents of this set with the specified element or set. This does not presently support a function as input, like it's jQuery counterpart. If this set only contains a single node and $template is a DOMElement, $template will be injected directly into the DOM. If this set contains multiple elements then the wrapper will be cloned. If $template is a DOMQueryResults, only the first element will be used.
+	 * Wraps the contents of this set with the specified element or set. This does not presently support a function as input, like it's jQuery counterpart. If this set only contains a single node and $template is a DOMElement, $template will be injected directly into the DOM. If this set contains multiple elements then the wrapper will be cloned. If $template is a DOMObject, only the first element will be used.
 	 * @param DOMElement $wrapper The element to wrap this elements children with
 	 * @return DOMElement This element, for method chaining
 	 */
 	public function wrapInner($template)
 	{
-		if(!($template instanceof DOMElement || $template instanceof DOMQueryResults))
-			throw new \Exception("Argument must be an instance of DOMElement or DOMQueryResults");
+		if(!($template instanceof DOMElement || $template instanceof DOMObject))
+			throw new \Exception("Argument must be an instance of DOMElement or DOMObject");
 
-		if($template instanceof DOMQueryResults)
+		if($template instanceof DOMObject)
 			$template = $template->first()[0];	// NB: Wrap in the first node of the set, mirror jQuery behaviour
 
 		foreach($this->container as $el)
@@ -561,7 +561,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Returns closest ancestors of this set which matches the given selector. Please note this will NOT work on the document element presently
 	 * @param string $selector The CSS selector to match
-	 * @return DOMQueryResults The results set of ancestors matching $selector
+	 * @return DOMObject The results set of ancestors matching $selector
 	 * @throws \Exception When $selector is empty
 	 */
 	public function closest($selector)
@@ -577,18 +577,18 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 			for($node = $el; $node !== $documentElement; $node = $node->parentNode)
 			{
-				if((new DOMQueryResults($node))->is($selector) && array_search($node, $results, true) === false)
+				if((new DOMObject($node))->is($selector) && array_search($node, $results, true) === false)
 					$results []= $node;
 			}
 		}
 
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 
 	/**
 	 * Returns the direct parents of all elements within this set
 	 * @param string $selector The CSS selector to match
-	 * @return DOMQueryResults The results set of direct parents matching $selector (if specified)
+	 * @return DOMObject The results set of direct parents matching $selector (if specified)
 	 */
 	public function parent($selector=null)
 	{
@@ -596,7 +596,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 		foreach($this->container as $el)
 		{
-			if($selector != null && !((new DOMQueryResults($el->parentNode))->is($selector)))
+			if($selector != null && !((new DOMObject($el->parentNode))->is($selector)))
 				continue;
 
 			if(array_search($el->parentNode, $result, true) !== false)
@@ -605,12 +605,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			$result []= $el->parentNode;
 		}
 
-		return new DOMQueryResults($result);
+		return new DOMObject($result);
 	}
 
 	/**
 	 * Hides elements within this set with inline CSS
-	 * @return DOMQueryResults This set, for method chaining
+	 * @return DOMObject This set, for method chaining
 	 */
 	public function hide()
 	{
@@ -623,7 +623,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 	/**
 	 * Unhides elements within this set by removing inline CSS
-	 * @return DOMQueryResults This set, for method chaining
+	 * @return DOMObject This set, for method chaining
 	 */
 	public function show()
 	{
@@ -637,12 +637,12 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Returns the previous siblings of this sets elements, optionally taking a selector to match against
 	 * @param string|null $selector A CSS selector to match the sibling against, or null to get the sibling immediately previous to this element
-	 * @return DOMQueryResults Set of the matching elements
+	 * @return DOMObject Set of the matching elements
 	 */
 	public function prev($selector=null)
 	{
 		if(!$this->last())
-			return new DOMQueryResults([]);
+			return new DOMObject([]);
 		
 		$results = [];
 
@@ -651,22 +651,22 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			if($node->nodeType != XML_ELEMENT_NODE)
 				continue;
 			
-			if($selector == null || (new DOMQueryResults($node))->is($selector))
+			if($selector == null || (new DOMObject($node))->is($selector))
 				$results []= $node;
 		}
 
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 
 	/**
 	 * Returns the following siblings of this sets elements, optionally taking a selector to match against. PLEASE NOTE that this is the equivalent of jQuery's "next". "next" is implemented by the Iterator interface, and cannot be used. Please use following instead of next.
 	 * @param string|null $selector A CSS selector to match the sibling against, or null to get the sibling immediately previous to this element
-	 * @return DOMQueryResults Set of the matching elements
+	 * @return DOMObject Set of the matching elements
 	 */
 	public function following($selector=null)
 	{
 		if(!$this->length)
-			return new DOMQueryResults([]);
+			return new DOMObject([]);
 		
 		$results = [];
 		
@@ -675,17 +675,17 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			if($node->nodeType != XML_ELEMENT_NODE)
 				continue;
 			
-			if($selector == null || (new DOMQueryResults($node))->is($selector))
+			if($selector == null || (new DOMObject($node))->is($selector))
 				$results []= $node;
 		}
 
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 
 	/**
 	 * Returns all siblings of elements within this set, optionally only siblings which match the provided CSS selector
 	 * @param string|null The selector to match sibilings against
-	 * @return DOMQueryResults The matching siblings, or all siblings if no selector is provided
+	 * @return DOMObject The matching siblings, or all siblings if no selector is provided
 	 */
 	public function siblings($selector=null)
 	{
@@ -700,7 +700,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 				if($node === $el)
 					continue;
 				
-				if($selector && !((new DOMQueryResults($node))->is($selector)))
+				if($selector && !((new DOMObject($node))->is($selector)))
 					continue;
 				
 				if(array_search($node, $results, true) !== false)
@@ -710,13 +710,13 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			}
 		}
 
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 
 	/**
 	 * Gets or sets the value of form elements
 	 * @param string|null $value NULL to get the value of this element, a string to set the value of this element
-	 * @return DOMQueryResult|string|null When setting values, this DOMQueryResults set is returned for method chaining. When getting, the value of the input, or null if no value is present
+	 * @return DOMQueryResult|string|null When setting values, this DOMObject set is returned for method chaining. When getting, the value of the input, or null if no value is present
 	 */
 	public function val($value=null)
 	{
@@ -769,7 +769,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			{
 				case 'textarea':
 
-					$set = new DOMQueryResults($el);
+					$set = new DOMObject($el);
 				
 					$set->clear();
 					$el->appendChild( $el->ownerDocument->createTextNode($value) );
@@ -778,7 +778,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 				
 				case 'select':
 
-					$set = new DOMQueryResults($el);
+					$set = new DOMObject($el);
 					
 					$deselect = $set->find('option[selected]');
 					foreach($deselect as $d)
@@ -830,7 +830,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Removes the specified class from all elements within this set
 	 * @param string $name The classname
-	 * @return DOMQueryResults This set, for method chaining
+	 * @return DOMObject This set, for method chaining
 	 */
 	public function removeClass($name)
 	{
@@ -854,13 +854,13 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Adds class(es) to all elements within this set
 	 * @param string $name The classname
-	 * @return DOMQueryResults This set, for method chaining
+	 * @return DOMObject This set, for method chaining
 	 */
 	public function addClass($name)
 	{
 		foreach($this->container as $el)
 		{
-			if((new DOMQueryResults([$el]))->hasClass($name))
+			if((new DOMObject([$el]))->hasClass($name))
 				continue;
 				
 			$class = ($el->hasAttribute('class') ? $el->getAttribute('class') : '');
@@ -874,7 +874,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 * Method for working with attributes on this set
 	 * @param string|array A string to get or set single a attribute, an array of key value pairs to set multiple attributes
 	 * @param null|string $val A string, if the first argument is a string, or NULL if the first argument is an array
-	 * @return string|DOMQueryResults A string when retrieving data, this set for method chaining when setting
+	 * @return string|DOMObject A string when retrieving data, this set for method chaining when setting
 	 * @throws \Exception When $arg is not supplied
 	 * @throws \Exception When first argument is neither a string nor an array
 	 * @throws \Exception When the first argument is a string, and the second argument is provided but not scalar
@@ -974,7 +974,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	 * Method for working with data- attributes on this set
 	 * @param null|string|array $arg If both arguments are null / not provided, this function will return all data- attributes as an associative array. If a string is provided, it will be treated as a name and the value of the relevant data- attribute will be returned. If an array is provided, it will be used to set multiple data- attributes on the set.
 	 * @param null|string $val A second argument, this can only be used if $arg is a string
-	 * @return string|DOMQueryResults A string when retrieving data, this set for method chaining when setting data
+	 * @return string|DOMObject A string when retrieving data, this set for method chaining when setting data
 	 * @throws \Exception When $arg is null, but $val is non-null. This is an invalid combination of arguments
 	 * @throws \Exception When $arg is a string, but $val is not a string or null
 	 * @throws \Exception When $arg is an array of key value pairs to set, but $val is not null
@@ -1037,9 +1037,9 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 	/**
 	 * Inserts conmtent after the elements within this set
-	 * @param DOMElement|DOMQueryResults|array|string $arg The element(s) or text to insert
-	 * @return DOMQueryResults This set, for method chaining
-	 * @throws \Exception When the supplied argument is not a DOMElement, DOMQueryResults, array or string
+	 * @param DOMElement|DOMObject|array|string $arg The element(s) or text to insert
+	 * @return DOMObject This set, for method chaining
+	 * @throws \Exception When the supplied argument is not a DOMElement, DOMObject, array or string
 	 * @throws \Exception When an array is supplied with a non-DOMElement element
 	 */
 	public function after($arg)
@@ -1049,7 +1049,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 		if($arg instanceof DOMElement)
 			$nodes = [$arg];
-		else if(is_array($arg) || $arg instanceof DOMQueryResults)
+		else if(is_array($arg) || $arg instanceof DOMObject)
 			$nodes = $arg;
 		else if(is_string($arg))
 			$nodes = [$this->first()[0]->ownerDocument->createTextNode($arg)];
@@ -1079,9 +1079,9 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 	/**
 	 * Inserts conmtent before the elements within this set
-	 * @param DOMElement|DOMQueryResults|array|string $arg The element(s) or text to insert
-	 * @return DOMQueryResults This set, for method chaining
-	 * @throws \Exception When the supplied argument is not a DOMElement, DOMQueryResults, array or string
+	 * @param DOMElement|DOMObject|array|string $arg The element(s) or text to insert
+	 * @return DOMObject This set, for method chaining
+	 * @throws \Exception When the supplied argument is not a DOMElement, DOMObject, array or string
 	 * @throws \Exception When an array is supplied with a non-DOMElement element
 	 */
 	public function before($arg)
@@ -1091,7 +1091,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 		if($arg instanceof DOMElement)
 			$nodes = [$arg];
-		else if(is_array($arg) || $arg instanceof DOMQueryResults)
+		else if(is_array($arg) || $arg instanceof DOMObject)
 			$nodes = $arg;
 		else if(is_string($arg))
 			$nodes = [$this->first()[0]->ownerDocument->createTextNode($arg)];
@@ -1111,16 +1111,16 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 	/**
 	 * Appends content inside the elements within this set
-	 * @param DOMElement|DOMQueryResults|array|string $subject The content to insert, can be an element, an array or result set of elements, or a string
-	 * @return DOMQueryResults This set, for method chaining
-	 * @throws \Exception When the supplied argument is not a DOMElement, DOMQueryResults, array or string
+	 * @param DOMElement|DOMObject|array|string $subject The content to insert, can be an element, an array or result set of elements, or a string
+	 * @return DOMObject This set, for method chaining
+	 * @throws \Exception When the supplied argument is not a DOMElement, DOMObject, array or string
 	 * @throws \Exception When an array is supplied with a non-DOMElement element
 	 */
 	public function append($subject)
 	{
 		foreach($this->container as $el)
 		{
-			if(is_array($subject) || $subject instanceof DOMQueryResults)
+			if(is_array($subject) || $subject instanceof DOMObject)
 			{
 				foreach($subject as $node)
 				{
@@ -1141,7 +1141,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			else if($subject instanceof DOMElement)
 				$el->appendChild($subject->cloneNode(true));
 			else
-				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMQueryResults, an instance of DOMElement or a string");
+				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMObject, an instance of DOMElement or a string");
 		}
 
 		return $this;
@@ -1149,16 +1149,16 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 	/**
 	 * Prepends content inside the elements within this set
-	 * @param DOMElement|DOMQueryResults|array|string $subject The content to insert, can be an element, an array or result set of elements, or a string
-	 * @return DOMQueryResults This set, for method chaining
-	 * @throws \Exception When the supplied argument is not a DOMElement, DOMQueryResults, array or string
+	 * @param DOMElement|DOMObject|array|string $subject The content to insert, can be an element, an array or result set of elements, or a string
+	 * @return DOMObject This set, for method chaining
+	 * @throws \Exception When the supplied argument is not a DOMElement, DOMObject, array or string
 	 * @throws \Exception When an array is supplied with a non-DOMElement element
 	 */
 	public function prepend($subject)
 	{
 		foreach($this->container as $el)
 		{
-			if(is_array($subject) || $subject instanceof DOMQueryResults)
+			if(is_array($subject) || $subject instanceof DOMObject)
 			{
 				$originalFirst = $el->firstChild;
 				
@@ -1186,7 +1186,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					$el->insertBefore($subject->cloneNode(true), $el->firstChild);
 			}
 			else
-				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMQueryResults, an instance of DOMElement or a string");
+				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMObject, an instance of DOMElement or a string");
 		}
 		
 		return $this;
@@ -1194,7 +1194,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 
 	/**
 	 * Removes all elements within this set from the DOM tree
-	 * @return DOMQueryResults This set, for method chaining
+	 * @return DOMObject This set, for method chaining
 	 */
 	public function remove()
 	{
@@ -1208,9 +1208,9 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 	}
 
 	/**
-	 * @param DOMElement|DOMQueryResults|array|string $arg The element(s) or text to insert
-	 * @return DOMQueryResults This set, for method chaining
-	 * @throws \Exception When the supplied argument is not a DOMElement, DOMQueryResults, array or string
+	 * @param DOMElement|DOMObject|array|string $arg The element(s) or text to insert
+	 * @return DOMObject This set, for method chaining
+	 * @throws \Exception When the supplied argument is not a DOMElement, DOMObject, array or string
 	 * @throws \Exception When an array is supplied with a non-DOMElement element
 	 */
 	public function replaceWith($subject)
@@ -1219,7 +1219,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		{
 			$next = $el->nextSibling;
 
-			if($subject instanceof DOMQueryResults || is_array($subject))
+			if($subject instanceof DOMObject || is_array($subject))
 			{
 				foreach($subject as $node)
 				{
@@ -1245,11 +1245,24 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 					$el->parentNode->insertBefore($node, $next);
 			}
 			else
-				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMQueryResults, an instance of DOMElement or a string");
+				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMObject, an instance of DOMElement or a string");
 	
 			$el->parentNode->removeChild($el);
 		}
 
 		return $this;
 	}
+
+	public function import($subject)
+	{
+		if(empty($this->container))
+			throw new \Exception("Can't import to an empty set");
+		
+		$document = $this->container[0]->ownerDocument;
+		$imported = $document->import($subject);
+
+		$this->append($imported);
+	}
 }
+
+class_alias(DOMObject::class, '\PerryRylance\DOMDocument\DOMQueryResults');

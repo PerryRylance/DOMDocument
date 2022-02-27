@@ -139,7 +139,7 @@ class DOMElement extends \DOMElement
 	 * Equivalent of JavaScripts querySelectorAll, takes a CSS selector, and optionally an array of options. 
 	 * @param string	$selector The CSS selector
 	 * @param array		$options An array of options. The only supported option is "sort" which is true by default. This can be set to false for improved performance, where that is desirable over ordered results.
-	 * @return DOMQueryResults The result set matching the specified selector
+	 * @return DOMObject The result set matching the specified selector
 	 */
 	public function querySelectorAll($selector, array $options=[])
 	{
@@ -161,7 +161,7 @@ class DOMElement extends \DOMElement
 		if($options['sort'])
 			usort($results, array('PerryRylance\\DOMDocument\\DOMElement', 'sortByDOMPosition'));
 		
-		return new DOMQueryResults($results);
+		return new DOMObject($results);
 	}
 	
 	/**
