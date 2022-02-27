@@ -113,7 +113,7 @@ class DOMDocument extends \DOMDocument
 	/**
 	 * Loads the supplied HTML string
 	 * @param string $src The HTML string to parse
-	 * @param array $options An array of options. Presently only executePHP is supported, this defaults to TRUE and will execute inline PHP
+	 * @param array $options An array of options. Presently only DOMDocument::OPTION_EXECUTE_PHP is supported, this defaults to TRUE and will execute inline PHP
 	 * @see https://github.com/Masterminds/html5-php#options for other options supported by the HTML5 parser
 	 * @return This document, for method chaining
 	 */
