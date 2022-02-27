@@ -993,7 +993,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 			// Both arguments are null, return all data
 			$results = [];
 			
-			foreach($this->first()->attributes as $name => $value)
+			foreach($this->first()[0]->attributes as $name => $value)
 				if(preg_match('/^data-/', $name))
 					$results[preg_replace('/^data-/', '', $name)] = $value;
 			
@@ -1094,7 +1094,7 @@ class DOMQueryResults implements \ArrayAccess, \Countable, \Iterator
 		else if(is_array($arg) || $arg instanceof DOMQueryResults)
 			$nodes = $arg;
 		else if(is_string($arg))
-			$nodes = [$this->first()->ownerDocument->createTextNode($arg)];
+			$nodes = [$this->first()[0]->ownerDocument->createTextNode($arg)];
 		else
 			throw new \Exception("Invalid argument");
 
