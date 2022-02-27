@@ -1,0 +1,63 @@
+#wrapper
+{
+	font-family: sans-serif;
+	max-width: 66%;
+	margin: 2rem auto;
+	display: flex;
+}
+
+article
+{
+	background-color: #fcfcfc;
+	border: 1px solid lightgray;
+	padding: 2rem;
+}
+
+section.card
+{
+	padding: 1rem;
+	margin: 2rem 0;
+}
+
+aside
+{
+	margin-left: 2rem;
+	padding: 2rem;
+	align-self: flex-start;
+}
+
+.with-shadow
+{
+	box-shadow: 2px 7px 7px rgba(0, 0, 0, 0.1);
+}
+
+pre
+{
+	display: inline;
+}
+
+ul
+{
+	list-style: none;
+	padding: 0;
+}
+
+ul > li
+{
+	margin-bottom: 1rem;
+}
+
+a.button
+{
+	display: inline-block;
+
+	white-space: nowrap;
+	text-decoration: none;
+	padding: .5rem;
+
+	border: 1px solid lightgrey;
+	border-radius: 2ch;
+
+	background: #333;
+	color: white;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOMDocument Inline Styles example</title>
+	</head>
+	<body>
+		<div id="wrapper">
+			<article class="with-shadow">
+				<h1>Hi there!</h1>
+				<section class="card with-shadow">
+					This example shows off a small part of the <a href="https://github.com/PerryRylance/DOMDocument">DOMDocument</a> library - query selectors and the <pre>css()</pre> function. Using <a href="https://github.com/sabberworm/PHP-CSS-Parser">this</a> PHP CSS Parser, we can obtain the rules from <pre>style.css</pre>, select the elements using <pre>find()</pre> and then apply the styles.
+				</section>
+				<section class="card with-shadow">
+					Internally we use Symfony's <a href="https://symfony.com/doc/current/components/css_selector.html">CSS selector</a> to convert selectors to XPaths, which are then used to select elements server side.
+				</section>
+				<section class="card with-shadow">
+					The result is a beautifully inline-styled document. This could be useful, say, for a mailer wishing to send styled mails but still keep content and presentation separate.
+				</section>
+				<section class="card with-shadow">
+					This library has many more uses as a jQuery-like, server side DOM manipulation library. I hope it is useful to you. Contributions are most welcome.
+				</section>
+			</article>
+			<aside class="with-shadow">
+				Check out
+				<ul>
+					<li>
+						<a class="button" href="https://github.com/PerryRylance/DOMDocument">GitHub for this project</a>
+					</li>
+					<li>
+						<a class="button" href="https://perryrylance.com">The authors blog</a>
+					</li>
+					<li>
+						<a class="button" href="https://github.com/sabberworm/PHP-CSS-Parser">The CSS parser used in this example</a>
+					</li>
+				</ul>
+			</aside>
+		</div>
+	</body>
+</html>
