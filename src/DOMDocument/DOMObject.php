@@ -933,6 +933,12 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 		return $this;
 	}
 
+	/**
+	 * Method for working with props (eg checkbox and radio)
+	 * @param string|array $name Name of the property, usually "checked"
+	 * @param null|string $val A string, value to set to the prop
+	 * @return string|DOMObject $this DOMObject for method chaining
+	 */
 	public function prop($name, $value=null)
 	{
 		if(empty($this->container))
@@ -961,6 +967,10 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 		return $this;
 	}
 
+	/**
+	 * Removes the named attribute
+	 * @param string $name Name of the attribute to remove
+	 */
 	public function removeAttr($name)
 	{
 		foreach($this->container as $node)
@@ -1253,15 +1263,21 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 		return $this;
 	}
 
+	/**
+	 * Imports the supplied subject and appends it to this set. Noop when this set is empty.
+	 * @param string|DOMElement|DOMObject The subject to import to this set
+	 */
 	public function import($subject)
 	{
 		if(empty($this->container))
-			throw new \Exception("Can't import to an empty set");
+			return $this;
 		
 		$document = $this->container[0]->ownerDocument;
 		$imported = $document->import($subject);
 
 		$this->append($imported);
+
+		return $this;
 	}
 }
 
