@@ -441,4 +441,11 @@ final class DOMDocumentTest extends TestCase
 
 		$this->assertEquals( $text, $document->find("#import-test")->text() );
 	}
+
+	public function testOutputNotEmpty()
+	{
+		$document = $this->getDocument();
+
+		$this->assertNotEmpty($document->html);
+	}
 }
