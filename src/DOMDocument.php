@@ -264,10 +264,10 @@ class DOMDocument extends \DOMDocument
 		if(!$body)
 			$body = $this->getDocumentElementSafe();
 		
-		if(!$body)
+		if(count($body) == 0)
 			return null;
-
-		for($node = $body->firstChild; $node != null; $node = $node->nextSibling)
+		
+		for($node = $body[0]->firstChild; $node != null; $node = $node->nextSibling)
 			$result .= $this->saveHTML($node);
 
 		return $result;
