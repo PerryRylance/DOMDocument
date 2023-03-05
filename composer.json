@@ -1,7 +1,7 @@
 {
 	"name": "perry-rylance/dom-document",
 	
-	"version": "2.1.2",
+	"version": "2.2.0",
 	"minimum-stability": "stable",
 	
 	"description": "An extension of PHP's DOMDocument library. This library implements many common jQuery functions, adds support for HTML5, CSS selectors, method chaining and performing operations on sets of matched results.",
@@ -21,21 +21,26 @@
 	],
 	
     "require": {
-		"php": ">=7.0.0",
+		"php": ">=7.4.0",
 		"ext-dom": "*",
         "masterminds/html5": "^2.7",
         "symfony/css-selector": "^5.1"
     },
 	
 	"require-dev": {
-        "phpdocumentor/phpdocumentor": "2.*",
-		"phpunit/phpunit": "9",
+        "phpdocumentor/phpdocumentor": "3.*",
+		"phpunit/phpunit": "10",
 		"sabberworm/php-css-parser": "^8.4"
     },
 	
 	"autoload": {
 		"psr-4": {
 			"PerryRylance\\": "src"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"symfony/flex": true
 		}
 	}
 }

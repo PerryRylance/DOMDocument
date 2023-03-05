@@ -25,7 +25,7 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 				$this->container = $arr;
 			else if($arr instanceof DOMObject)
 				$this->container = $arr->toArray();
-			else if($arr instanceof DOMElement)
+			else if($arr instanceof DOMElement || $arr instanceof DOMDocument)
 				$this->container = [$arr];
 			else
 				throw new \Exception("Argument must be an array of DOMElements, an instance of DOMObject, DOMElement, or omitted");
@@ -38,6 +38,15 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 					throw new \Exception("All elements must be instances of DOMElement, $className given");
 				}
 		}
+	}
+
+	private function implicitOwnerDocumentCast(): ?DOMDocument
+	{
+		// TODO: Keep an eye on this, might be better to set this at construction time rather than conditionally throwing this. This will make testing potentially difficult.
+		if(empty($this->container))
+			throw new \Exception("Cannot get ownerDocument on DOMObject with empty container");
+
+		return $this->container[0]->ownerDocument;
 	}
 	
 	public function toArray()
@@ -60,7 +69,8 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 		
 		foreach($this->container as $element)
 		{
-			if(!method_exists($element, $name))
+			// TODO: We've made a special exception for querySelectorAll here so that "is" can work and so that the "closest" test passes. "is" uses the parent of the subject element and performs a query selector all / find with the selector passed to "is". If the element calling "is" matches itself in the results from it's parents query selector all, then "is" returns true. The first expression here stops the exception from being raised and allows this to continue working. This should be removed when querySelectorAll is removed.
+			if(!($element instanceof DOMDocument && $name == "querySelectorAll") && !method_exists($element, $name))
 				throw new \Exception("No such method '$name' on " . get_class($element));
 			
 			$result = call_user_func_array(
@@ -103,17 +113,17 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 		}
 	}
 
-	public function offsetExists($offset)
+	public function offsetExists($offset): bool
 	{
 		return isset($this->container[$offset]);
 	}
 	
-	public function offsetGet($offset)
+	public function offsetGet($offset): mixed
 	{
 		return isset($this->container[$offset]) ? $this->container[$offset] : null;
 	}
 	
-	public function offsetSet($offset, $value)
+	public function offsetSet($offset, $value): void
 	{
 		if(!($value instanceof DOMElement))
 			throw new \Exception("Only DOMElement is permitted in query results");
@@ -124,22 +134,22 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 			$this->container[$offset] = $value;
 	}
 	
-	public function offsetUnset($offset)
+	public function offsetUnset($offset): void
 	{
 		unset($this->container[$offset]);
 	}
 	
-	public function count()
+	public function count(): int
 	{
 		return count($this->container);
 	}
 	
-	public function current()
+	public function current(): mixed
 	{
 		return $this->container[$this->index];
 	}
 	
-	public function next($arg=null)
+	public function next($arg=null): void
 	{
 		if(!empty($arg))
 			trigger_error("DOMObject::next is an implementation of Iterator::next, which takes no arguments. Did you mean to call jQuery-like DOMObject::following instead?", E_USER_WARNING);
@@ -147,17 +157,17 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 		$this->index++;
 	}
 	
-	public function key()
+	public function key(): mixed
 	{
 		return $this->index;
 	}
 	
-	public function valid()
+	public function valid(): bool
 	{
 		return isset($this->container[$this->key()]);
 	}
 	
-	public function rewind()
+	public function rewind(): void
 	{
 		$this->index = 0;
 	}
@@ -304,6 +314,8 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 	 */
 	public function is($selector)
 	{
+		$parent = $this->parent();
+
 		$matches = $this->parent()->find($selector);
 
 		foreach($matches as $m)
@@ -449,7 +461,9 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 			
 			$result = "";
 
-			foreach($this->first()->children() as $child)
+			$subject = new DOMObject($this->first());
+
+			foreach($subject->children() as $child)
 				$result .= $child->html;
 
 			return $result;
@@ -573,7 +587,7 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 
 		foreach($this->container as $el)
 		{
-			$documentElement = $el->ownerDocument->getDocumentElementSafe();
+			$documentElement = $this->implicitOwnerDocumentCast();
 
 			for($node = $el; $node !== $documentElement; $node = $node->parentNode)
 			{
@@ -1272,7 +1286,7 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 		if(empty($this->container))
 			return $this;
 		
-		$document = $this->container[0]->ownerDocument;
+		$document = $this->implicitOwnerDocumentCast();
 		$imported = $document->import($subject);
 
 		$this->append($imported);

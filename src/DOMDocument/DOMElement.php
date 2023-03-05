@@ -12,9 +12,9 @@ class DOMElement extends \DOMElement
 	/**
 	 * Constructor for a DOMElement. This should not be called directly. Use the document's createElement method instead
 	 */
-	public function __construct()
+	public function __construct(string $qualifiedName)
 	{
-		\DOMElement::__construct();
+		\DOMElement::__construct($qualifiedName);
 	}
 
 	public static function contains(DOMElement $container, DOMDocument $contained)
@@ -37,6 +37,11 @@ class DOMElement extends \DOMElement
 		return ($a->isBefore($b) ? -1 : 1);
 	}
 	
+	private function implicitCastParentNode(): DOMElement
+	{
+		return $this->parentNode;
+	}
+
 	/**
 	 * Test if this element comes before the other element in the DOM tree
 	 * @param DOMElement $other The element to compare positions with
@@ -51,7 +56,7 @@ class DOMElement extends \DOMElement
 		$other_depth = $other->getDepth();
 		
 		if($this_depth == $other_depth)
-			return $this->parentNode->isBefore($other->parentNode);
+			return $this->implicitCastParentNode()->isBefore($other->parentNode);
 		
 		if($this_depth > $other_depth)
 		{
@@ -63,8 +68,12 @@ class DOMElement extends \DOMElement
 				$ancestor = $ancestor->parentNode;
 				$ancestor_depth--;
 			}
+
+			function implicitCastDomElement($el): DOMElement {
+				return $el;
+			}
 			
-			return $ancestor->isBefore($other);
+			return implicitCastDomElement($ancestor)->isBefore($other);
 		}
 		
 		if($this_depth < $other_depth)

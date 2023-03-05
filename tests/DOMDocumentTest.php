@@ -215,7 +215,7 @@ final class DOMDocumentTest extends TestCase
 
 		$div = $document->create("<div></div>");
 			
-		$div->id = "clearance-test";
+		$div->attr("id", "clearance-test");
 		$div->html("Some test text <span>and a child element</span>");
 
 		$document->find("body")->append($div);
