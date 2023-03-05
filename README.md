@@ -15,7 +15,17 @@ Instantiate DOMDocument and enjoy the jQuery-like functions now at your disposal
 
 As of version 2.0.0, this library does not add jQuery-like methods to DOMElement, in order to avoid future collisions with the HTML living standard spec. Rather, these jQuery-like methods are implemented on `DOMObject` in the same manner jQuery objects work.
 
+
+## Documentation
 Read the libraries [documentation](http://perryrylance.com/docs/DOMDocument).
+
+The requirements to generate documentation are as follows:
+
+- `phpDocumentor` must be [installed](https://docs.phpdoc.org/guide/getting-started/installing.html#installation).
+
+To generate documentation, use the following command.
+
+`php <path/to/your/phpDocumentor.phar> -t ./docs --ignore vendor/`
 
 ## Migrating from 1.0.* to 2.*
 If you are considering switching from 1.0.* to >= 2.0.0 please note there are some considerations to be aware of.

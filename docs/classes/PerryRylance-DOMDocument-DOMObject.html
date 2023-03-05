@@ -1,0 +1,3369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>Documentation</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/perryrylance.html" class="">PerryRylance</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/perryrylance-domdocument.html" class="">DOMDocument</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+                <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/Application.html" class="">Application</a>
+</h4>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/perryrylance.html">PerryRylance</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/perryrylance-domdocument.html">DOMDocument</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    DOMObject
+
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a></li>
+                            </ul>
+        </div>
+    
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <abbr title="\ArrayAccess">ArrayAccess</abbr>,                             <abbr title="\Countable">Countable</abbr>,                             <abbr title="\Iterator">Iterator</abbr>                    </span>
+    
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">10</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">This class is used to represent a results set of matched elements, in much the same way as a jQuery array works. Any methods supported by DOMElement can be called on a DOMObject list.</p>
+
+
+
+
+
+
+
+<h3 id="interfaces_class_traits">
+    Interfaces, Classes, Traits and Enums
+    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\ArrayAccess">ArrayAccess</abbr></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\Countable">Countable</abbr></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\Iterator">Iterator</abbr></dt>
+        <dd></dd>
+    
+    
+    
+    </dl>
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#property_container">$container</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#property_index">$index</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method___call">__call()</a>
+    <span>
+                                &nbsp;: <abbr title="\PerryRylance\DOMDocument\This">This</abbr>    </span>
+</dt>
+<dd>Magic method for function calls, this can be used to call any methods supported by DOMElement on the entire result set stored in this DOMObject set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Constructor. This should never be invoked outside of DOMElement</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method___get">__get()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_addClass">addClass()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Adds class(es) to all elements within this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_after">after()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Inserts conmtent after the elements within this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_append">append()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Appends content inside the elements within this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_attr">attr()</a>
+    <span>
+                                &nbsp;: string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Method for working with attributes on this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_before">before()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Inserts conmtent before the elements within this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_children">children()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Returns this sets children, or if a selector is supplied, only children of this set  which match the selector</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_clear">clear()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Empties all elements in this set by removing all the elements children, equivalent to jQuery&#039;s empty method - empty is a reserved word in PHP.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_closest">closest()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Returns closest ancestors of this set which matches the given selector. Please note this will NOT work on the document element presently</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_contents">contents()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Returns all direct child elements of this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_count">count()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_css">css()</a>
+    <span>
+                                &nbsp;: <abbr title="\PerryRylance\DOMDocument\DOMQueryResutls">DOMQueryResutls</abbr>|string|null    </span>
+</dt>
+<dd>Gets or sets inline styles on this set. Please note that this function, unlike jQuery, cannot be used to get computed styles. Only inline styles are supported.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_current">current()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_data">data()</a>
+    <span>
+                                &nbsp;: string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Method for working with data- attributes on this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_duplicate">duplicate()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Returns a deep clone of all elements in this set, equivalent to jQuery&#039;s clone method - clone is a reserved word in PHP</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_each">each()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Executes the supplied callback on the elements in this result set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_filter">filter()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Filters this result set using the given subject</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_find">find()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Finds any descendant elements which match the supplied CSS selector within this set.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_first">first()</a>
+    <span>
+                                &nbsp;: <abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|null    </span>
+</dt>
+<dd>Returns the first result in this set, or null if the set is empty</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_following">following()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Returns the following siblings of this sets elements, optionally taking a selector to match against. PLEASE NOTE that this is the equivalent of jQuery&#039;s &quot;next&quot;. &quot;next&quot; is implemented by the Iterator interface, and cannot be used. Please use following instead of next.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_hasClass">hasClass()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Tests if the specified class exists on at least one elements class attribute wihtin this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_hide">hide()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Hides elements within this set with inline CSS</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_html">html()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|string    </span>
+</dt>
+<dd>Gets the HTML of the first node in the set, or sets the HTML of all nodes in the set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_import">import()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Imports the supplied subject and appends it to this set. Noop when this set is empty.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_is">is()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if any element within this set matches the supplied selector</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_key">key()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_last">last()</a>
+    <span>
+                                &nbsp;: <abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|null    </span>
+</dt>
+<dd>Returns the last result in this set, or null if the set is empty</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_next">next()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_offsetExists">offsetExists()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_offsetGet">offsetGet()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_offsetSet">offsetSet()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_offsetUnset">offsetUnset()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_parent">parent()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Returns the direct parents of all elements within this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_prepend">prepend()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Prepends content inside the elements within this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_prev">prev()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Returns the previous siblings of this sets elements, optionally taking a selector to match against</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_prop">prop()</a>
+    <span>
+                                &nbsp;: string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Method for working with props (eg checkbox and radio)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_remove">remove()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Removes all elements within this set from the DOM tree</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_removeAttr">removeAttr()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Removes the named attribute</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_removeClass">removeClass()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Removes the specified class from all elements within this set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_replaceWith">replaceWith()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_reverse">reverse()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_rewind">rewind()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_show">show()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Unhides elements within this set by removing inline CSS</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_siblings">siblings()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Returns all siblings of elements within this set, optionally only siblings which match the provided CSS selector</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_text">text()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|string    </span>
+</dt>
+<dd>Gets the text of all elements in the set, or sets the tewxt of all elements in the set</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_toArray">toArray()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_val">val()</a>
+    <span>
+                                &nbsp;: <abbr title="\PerryRylance\DOMDocument\DOMQueryResult">DOMQueryResult</abbr>|string|null    </span>
+</dt>
+<dd>Gets or sets the value of form elements</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_valid">valid()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_wrap">wrap()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
+</dt>
+<dd>Wraps this set with the specified element or set, then replaces the elements with the wrapper. This does not presently support a function as input, like it&#039;s jQuery counterpart. If this set only contains a single node and $template is a DOMElement, $template will be injected directly into the DOM. If this set contains multiple elements then the wrapper will be cloned. If $template is a DOMObject, only the first element will be used.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_wrapInner">wrapInner()</a>
+    <span>
+                                &nbsp;: <abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>    </span>
+</dt>
+<dd>Wraps the contents of this set with the specified element or set. This does not presently support a function as input, like it&#039;s jQuery counterpart. If this set only contains a single node and $template is a DOMElement, $template will be injected directly into the DOM. If this set contains multiple elements then the wrapper will be cloned. If $template is a DOMObject, only the first element will be used.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_implicitOwnerDocumentCast">implicitOwnerDocumentCast()</a>
+    <span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument.html"><abbr title="\PerryRylance\DOMDocument">DOMDocument</abbr></a>|null    </span>
+</dt>
+<dd></dd>
+
+        </dl>
+
+
+
+        
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/PerryRylance-DOMDocument-DOMObject.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_container">
+        $container
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#property_container" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$container</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_index">
+        $index
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#property_index" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">12</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$index</span>
+     = <span class="phpdocumentor-signature__default-value">0</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/PerryRylance-DOMDocument-DOMObject.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___call">
+        __call()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method___call" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">66</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Magic method for function calls, this can be used to call any methods supported by DOMElement on the entire result set stored in this DOMObject set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__call</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arguments</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\This">This</abbr></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the method to call</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$arguments</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The arguments which will be passed on to the corresponding method on DOMElement</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>for a list of supported methods</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\This">This</abbr></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>results set for functions which return $this (eg attr), a new results set for functions which return result sets (eg find)</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">18</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Constructor. This should never be invoked outside of DOMElement</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arr</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$arr</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___get">
+        __get()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method___get" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">97</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addClass">
+        addClass()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_addClass" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">873</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Adds class(es) to all elements within this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">addClass</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The classname</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_after">
+        after()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_after" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1069</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Inserts conmtent after the elements within this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">after</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arg</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$arg</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|array&lt;string|int, mixed&gt;|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The element(s) or text to insert</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied argument is not a DOMElement, DOMObject, array or string</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When an array is supplied with a non-DOMElement element</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_append">
+        append()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_append" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1143</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Appends content inside the elements within this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">append</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$subject</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$subject</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|array&lt;string|int, mixed&gt;|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The content to insert, can be an element, an array or result set of elements, or a string</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied argument is not a DOMElement, DOMObject, array or string</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When an array is supplied with a non-DOMElement element</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_attr">
+        attr()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_attr" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">899</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Method for working with attributes on this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">attr</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arg</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$arg</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A string, if the first argument is a string, or NULL if the first argument is an array</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When $arg is not supplied</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When first argument is neither a string nor an array</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the first argument is a string, and the second argument is provided but not scalar</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the first argument is a key value array, but the second argument is also set</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied key value array has a non-string key</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied key value array has a non-scalar value</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>A string when retrieving data, this set for method chaining when setting</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_before">
+        before()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_before" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1111</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Inserts conmtent before the elements within this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">before</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arg</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$arg</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|array&lt;string|int, mixed&gt;|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The element(s) or text to insert</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied argument is not a DOMElement, DOMObject, array or string</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When an array is supplied with a non-DOMElement element</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_children">
+        children()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_children" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">283</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns this sets children, or if a selector is supplied, only children of this set  which match the selector</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">children</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selector</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The CSS selector to match</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Any children of this set which match the selector, or all children if no selector is specified</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_clear">
+        clear()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_clear" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">504</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Empties all elements in this set by removing all the elements children, equivalent to jQuery&#039;s empty method - empty is a reserved word in PHP.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">clear</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_closest">
+        closest()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_closest" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">581</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns closest ancestors of this set which matches the given selector. Please note this will NOT work on the document element presently</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">closest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selector</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The CSS selector to match</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When $selector is empty</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The results set of ancestors matching $selector</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_contents">
+        contents()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_contents" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">346</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns all direct child elements of this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">contents</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The children of this set</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_count">
+        count()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_count" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">142</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">count</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_css">
+        css()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_css" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">364</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets or sets inline styles on this set. Please note that this function, unlike jQuery, cannot be used to get computed styles. Only inline styles are supported.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">css</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arg</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">DOMDocument::UNDEFINED</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMQueryResutls">DOMQueryResutls</abbr>|string|null</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$arg</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>An array of properties to set, a or string to get from the first element in the set</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">DOMDocument::UNDEFINED</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied argument is neither a string nor an array</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMQueryResutls">DOMQueryResutls</abbr>|string|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Will return this set for method chaining if $arg is an array, returns the CSS property value as a string if $arg is a string, returns null if $arg is a string and $val is not supplied, and the set is empty</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_current">
+        current()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_current" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">147</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">current</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_data">
+        data()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_data" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1007</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Method for working with data- attributes on this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">data</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">null|string|array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arg</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$val</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$arg</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string|array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>If both arguments are null / not provided, this function will return all data- attributes as an associative array. If a string is provided, it will be treated as a name and the value of the relevant data- attribute will be returned. If an array is provided, it will be used to set multiple data- attributes on the set.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$val</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A second argument, this can only be used if $arg is a string</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When $arg is null, but $val is non-null. This is an invalid combination of arguments</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When $arg is a string, but $val is not a string or null</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When $arg is an array of key value pairs to set, but $val is not null</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the combination of arguments supplied is invalid, or one or more types in the arguments are invalid</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>A string when retrieving data, this set for method chaining when setting data</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_duplicate">
+        duplicate()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_duplicate" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">332</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a deep clone of all elements in this set, equivalent to jQuery&#039;s clone method - clone is a reserved word in PHP</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">duplicate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The cloned element</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_each">
+        each()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_each" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">187</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Executes the supplied callback on the elements in this result set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">each</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$callback</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$callback</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Any callable function</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied argument is not callable</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This result set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_filter">
+        filter()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_filter" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">204</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Filters this result set using the given subject</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">filter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$subject</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$subject</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|callable</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The subject to filter with. A string will be interpreted as a CSS selector, a callback can be used to implement custom filtering logic.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied subject is neither a string nor callable</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The filtered result set</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_find">
+        find()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_find" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">261</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Finds any descendant elements which match the supplied CSS selector within this set.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">find</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selector</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The CSS selector</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The result set matching the specified selector</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_first">
+        first()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_first" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">235</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the first result in this set, or null if the set is empty</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">first</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|null</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Review this, it should return a results set, should it be any empty array on an empty set? I expect so</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The first element in the set, or null if the set is empty</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_following">
+        following()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_following" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">680</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the following siblings of this sets elements, optionally taking a selector to match against. PLEASE NOTE that this is the equivalent of jQuery&#039;s &quot;next&quot;. &quot;next&quot; is implemented by the Iterator interface, and cannot be used. Please use following instead of next.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">following</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selector</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A CSS selector to match the sibling against, or null to get the sibling immediately previous to this element</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Set of the matching elements</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasClass">
+        hasClass()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_hasClass" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">830</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Tests if the specified class exists on at least one elements class attribute wihtin this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasClass</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The classname</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>FALSE if no nodes in this set have the specified classname, TRUE if at least one node does</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hide">
+        hide()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_hide" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">629</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Hides elements within this set with inline CSS</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hide</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_html">
+        html()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_html" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">447</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the HTML of the first node in the set, or sets the HTML of all nodes in the set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">html</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$html</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$html</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Sets the HTML for all elements in the set if $html is a string, gets the HTML of the first element in this set if null is supplied</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set for method chaining if $html is not null, the HTML string representing the first element in this set if $html is null</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_import">
+        import()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_import" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1284</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Imports the supplied subject and appends it to this set. Noop when this set is empty.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">import</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$subject</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$subject</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_is">
+        is()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_is" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">315</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if any element within this set matches the supplied selector</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">is</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selector</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The CSS selector</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>TRUE if this set contains an element which matches the supplied selector, FALSE otherwise</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_key">
+        key()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_key" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">160</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">key</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_last">
+        last()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_last" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">248</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the last result in this set, or null if the set is empty</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">last</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|null</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">todo</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Review this, it should return a results set, should it be any empty array on an empty set? I expect so</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The last element in the set, or null if the set is empty</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_next">
+        next()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_next" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">152</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">next</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$arg</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$arg</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_offsetExists">
+        offsetExists()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_offsetExists" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">116</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">offsetExists</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_offsetGet">
+        offsetGet()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_offsetGet" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">121</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">offsetGet</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_offsetSet">
+        offsetSet()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_offsetSet" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">126</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">offsetSet</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_offsetUnset">
+        offsetUnset()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_offsetUnset" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">137</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">offsetUnset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_parent">
+        parent()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_parent" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">607</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the direct parents of all elements within this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">parent</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selector</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The CSS selector to match</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The results set of direct parents matching $selector (if specified)</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_prepend">
+        prepend()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_prepend" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1181</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Prepends content inside the elements within this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">prepend</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|array&lt;string|int, mixed&gt;|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$subject</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$subject</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|array&lt;string|int, mixed&gt;|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The content to insert, can be an element, an array or result set of elements, or a string</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied argument is not a DOMElement, DOMObject, array or string</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When an array is supplied with a non-DOMElement element</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_prev">
+        prev()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_prev" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">656</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the previous siblings of this sets elements, optionally taking a selector to match against</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">prev</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selector</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A CSS selector to match the sibling against, or null to get the sibling immediately previous to this element</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Set of the matching elements</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_prop">
+        prop()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_prop" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">956</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Method for working with props (eg checkbox and radio)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">prop</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Name of the property, usually &quot;checked&quot;</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string|<a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>$this DOMObject for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_remove">
+        remove()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_remove" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1223</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Removes all elements within this set from the DOM tree</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">remove</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_removeAttr">
+        removeAttr()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_removeAttr" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">988</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Removes the named attribute</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">removeAttr</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Name of the attribute to remove</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_removeClass">
+        removeClass()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_removeClass" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">849</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Removes the specified class from all elements within this set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">removeClass</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The classname</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_replaceWith">
+        replaceWith()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_replaceWith" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">1240</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">replaceWith</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$subject</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$subject</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When the supplied argument is not a DOMElement, DOMObject, array or string</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>When an array is supplied with a non-DOMElement element</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_reverse">
+        reverse()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_reverse" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">175</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">reverse</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_rewind">
+        rewind()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_rewind" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">170</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">rewind</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_show">
+        show()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_show" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">642</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Unhides elements within this set by removing inline CSS</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">show</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_siblings">
+        siblings()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_siblings" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">704</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns all siblings of elements within this set, optionally only siblings which match the provided CSS selector</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">siblings</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$selector</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$selector</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The matching siblings, or all siblings if no selector is provided</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_text">
+        text()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_text" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">408</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the text of all elements in the set, or sets the tewxt of all elements in the set</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">text</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$text</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$text</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Sets the value if a string is provided, gets if null is supplied</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>|string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set for method chaining if $text is not null, the textContent of all elements in the set if $text is null</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toArray">
+        toArray()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toArray</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_val">
+        val()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_val" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">735</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets or sets the value of form elements</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">val</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMQueryResult">DOMQueryResult</abbr>|string|null</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>NULL to get the value of this element, a string to set the value of this element</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMQueryResult">DOMQueryResult</abbr>|string|null</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>When setting values, this DOMObject set is returned for method chaining. When getting, the value of the input, or null if no value is present</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_valid">
+        valid()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_valid" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">165</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">valid</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_wrap">
+        wrap()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_wrap" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">520</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Wraps this set with the specified element or set, then replaces the elements with the wrapper. This does not presently support a function as input, like it&#039;s jQuery counterpart. If this set only contains a single node and $template is a DOMElement, $template will be injected directly into the DOM. If this set contains multiple elements then the wrapper will be cloned. If $template is a DOMObject, only the first element will be used.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">wrap</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$template</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This set, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_wrapInner">
+        wrapInner()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_wrapInner" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">548</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Wraps the contents of this set with the specified element or set. This does not presently support a function as input, like it&#039;s jQuery counterpart. If this set only contains a single node and $template is a DOMElement, $template will be injected directly into the DOM. If this set contains multiple elements then the wrapper will be cloned. If $template is a DOMObject, only the first element will be used.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">wrapInner</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$template</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>This element, for method chaining</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_implicitOwnerDocumentCast">
+        implicitOwnerDocumentCast()
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#method_implicitOwnerDocumentCast" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument/DOMObject.php"><a href="files/src-domdocument-domobject.html"><abbr title="src/DOMDocument/DOMObject.php">DOMObject.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">implicitOwnerDocumentCast</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument.html"><abbr title="\PerryRylance\DOMDocument">DOMDocument</abbr></a>|null</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument.html"><abbr title="\PerryRylance\DOMDocument">DOMDocument</abbr></a>|null</span>
+            &mdash;
+        
+    
+</article>
+            </section>
+
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/PerryRylance-DOMDocument-DOMObject.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>
