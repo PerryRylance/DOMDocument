@@ -68,12 +68,8 @@ class DOMElement extends \DOMElement
 				$ancestor = $ancestor->parentNode;
 				$ancestor_depth--;
 			}
-
-			function implicitCastDomElement($el): DOMElement {
-				return $el;
-			}
 			
-			return implicitCastDomElement($ancestor)->isBefore($other);
+			return ancestor->isBefore($other);
 		}
 		
 		if($this_depth < $other_depth)
