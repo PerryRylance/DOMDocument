@@ -42,6 +42,10 @@ class DOMElement extends \DOMElement
 		return $this->parentNode;
 	}
 
+	private static function implicitCastDomElement($el): DOMElement {
+		return $el;
+	}
+
 	/**
 	 * Test if this element comes before the other element in the DOM tree
 	 * @param DOMElement $other The element to compare positions with
@@ -69,11 +73,7 @@ class DOMElement extends \DOMElement
 				$ancestor_depth--;
 			}
 
-			function implicitCastDomElement($el): DOMElement {
-				return $el;
-			}
-			
-			return implicitCastDomElement($ancestor)->isBefore($other);
+			return static::implicitCastDomElement($ancestor)->isBefore($other);
 		}
 		
 		if($this_depth < $other_depth)
