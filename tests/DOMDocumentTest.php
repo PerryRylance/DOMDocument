@@ -50,6 +50,9 @@ final class DOMDocumentTest extends TestCase
 			&&
 			$document->find(".after")->text() == "This element is after"
 		);
+
+		// NB: Reverse compare across levels to reach part where this depth is greater than other depth
+		$this->assertFalse($after[0]->isBefore($before[0]), 'Reverse compare across levels');
 	}
 
 	public function testChildrenFiltering()
