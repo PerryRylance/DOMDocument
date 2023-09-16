@@ -195,8 +195,6 @@ final class DOMDocumentTest extends TestCase
 			"three" => 3
 		]);
 
-		define("DEBUG", true);
-
 		$this->assertEquals("123", $video->data("test"));
 		$this->assertEquals("1", $video->data("one"));
 		$this->assertEquals("2", $video->data("two"));

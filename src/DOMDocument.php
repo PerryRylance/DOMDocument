@@ -116,7 +116,13 @@ class DOMDocument extends \DOMDocument
 			case "querySelector":
 			case "querySelectorAll":
 
-				trigger_error("querySelector and querySelectorAll are deprecated on DOMDocument. It is recommended to use DOMDocument::find instead", E_USER_WARNING);
+				$options = [];
+
+				if(count($arguments) > 1)
+					$options = $arguments[1];
+				
+				if(!isset($options['caller']) || !($options['caller'] instanceof DOMObject))
+					trigger_error("querySelector and querySelectorAll are deprecated on DOMDocument. It is recommended to use DOMDocument::find instead", E_USER_DEPRECATED);
 
 				$method = "find";	// NB: Backwards compatibility
 

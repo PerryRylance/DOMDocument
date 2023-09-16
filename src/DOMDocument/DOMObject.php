@@ -265,7 +265,8 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 		$this->each(function($el) use (&$result, $selector) {
 
 			$subset	= $el->querySelectorAll($selector, [
-				"sort" => true
+				"sort" => true,
+				"caller" => $this
 			]);
 
 			$result = array_merge($result, $subset->toArray());
@@ -323,6 +324,15 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 				return true;
 
 		return false;
+	}
+
+	/**
+	 * Checks if this object contains the document exclusively
+	 * @return boolean TRUE if this set contains the document exclusively
+	 */
+	public function isDocument()
+	{
+		return (count($this->container) === 1 && $this->container[0] instanceof DOMDocument);
 	}
 
 	/**
