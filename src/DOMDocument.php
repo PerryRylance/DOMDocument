@@ -29,7 +29,7 @@ class DOMDocument extends \DOMDocument
 		\DOMDocument::__construct($version, $encoding);
 	
 		$this->constructorCalled = true;
-		$this->registerNodeClass('DOMElement', 'PerryRylance\DOMDocument\DOMElement');
+		$this->registerNodeClass('DOMElement', DOMElement::class);
 	}
 	
 	/**
