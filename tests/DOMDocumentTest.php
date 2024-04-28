@@ -425,9 +425,7 @@ final class DOMDocumentTest extends TestCase
 	public function testNoPhpEvaluation()
 	{
 		$document = new DOMDocument();
-		$document->load(__DIR__ . "/test.php", [
-			DOMDocument::OPTION_EVALUATE_PHP => false
-		]);
+		$document->load(__DIR__ . "/test.php", DOMDocument::OPTION_DISABLE_HTML_NS);
 
 		$this->assertTrue( preg_match('/<\?php/', $document->saveHTML()) === 1 );
 	}

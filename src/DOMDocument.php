@@ -15,7 +15,8 @@ use PerryRylance\DOMDocument\DOMObject;
  */
 class DOMDocument extends \DOMDocument
 {
-	const OPTION_EVALUATE_PHP	= "executePHP"; // TODO: Change at some point to match up, find as a constant for now
+	const OPTION_EVALUATE_PHP		= 1;
+	const OPTION_DISABLE_HTML_NS	= 2; // NB: Prevents the parser from automatically assigning the HTML5 namespace to the DOM document. See Masterminds/html5-php.
 
 	private $constructorCalled = false; // NB: Used to signal bad state, otherwise we get silent failure when trying to loadHTML before calling constructor
 
@@ -155,27 +156,21 @@ class DOMDocument extends \DOMDocument
 	/**
 	 * Loads the supplied HTML string
 	 * @param string $src The HTML string to parse
-	 * @param array $options An array of options. Presently only DOMDocument::OPTION_EXECUTE_PHP is supported, this defaults to TRUE and will execute inline PHP
+	 * @param int $options A bit field of options. Presently only DOMDocument::OPTION_EXECUTE_PHP is supported, this defaults to TRUE and will execute inline PHP
 	 * @see https://github.com/Masterminds/html5-php#options for other options supported by the HTML5 parser
-	 * @return This document, for method chaining
+	 * @return bool true
 	 */
-	public function loadHTML($src, $options=array())
+	public function loadHTML(string $src, int $options = DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS): bool
 	{
 		if(!$this->constructorCalled)
 			throw new \Exception("Bad state (did you try to loadHTML before calling constructor?)");
 
-		if(empty($options))
-			$options = [];
-		
-		if(isset($options[DOMDocument::OPTION_EVALUATE_PHP]) && $options[DOMDocument::OPTION_EVALUATE_PHP])
+		if($options & DOMDocument::OPTION_EVALUATE_PHP)
 		{
 			ob_start();
 			eval("?>$src");
 			$src = ob_get_clean();
 		}
-		
-		if(!isset($options['disable_html_ns']))
-			$options['disable_html_ns'] = true;
 		
 		// NB: Hack to suppress doctype warning when dealing with fragments. This isn't ideal, but it's safe to assume HTML5 here, so we will simply add a doctype if it's not present.
 		if(!preg_match('/^<!DOCTYPE/i', $src))
@@ -184,7 +179,10 @@ class DOMDocument extends \DOMDocument
 		$html5 = new \Masterminds\HTML5([
 			'target_document' => $this
 		]);
-		$html5->loadHTML($src, $options);
+
+		$html5->loadHTML($src, [
+			'disable_html_ns' => $options & DOMDocument::OPTION_DISABLE_HTML_NS
+		]);
 		
 		if($html5->hasErrors())
 		{
@@ -196,7 +194,7 @@ class DOMDocument extends \DOMDocument
 
 		$this->onLoaded();
 		
-		return $this;
+		return true;
 	}
 
 	/**
@@ -211,11 +209,11 @@ class DOMDocument extends \DOMDocument
 	/**
 	 * Loads the named file
 	 * @param string $src The filename of the file to read from
-	 * @param array $options An array of options. Presently only DOMDocument::OPTION_EVALUATE_PHP is supported, this defaults to TRUE and will execute inline PHP
+	 * @param int $options A bit field of options. Presently only DOMDocument::OPTION_EVALUATE_PHP is supported, this defaults to TRUE and will execute inline PHP
 	 * @see https://github.com/Masterminds/html5-php#options for other options supported by the HTML5 parser
 	 * @return This document, for method chaining
 	 */
-	public function load($filename, $options=array())
+	public function load(string $filename, int $options = DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS): bool
 	{
 		if(!is_string($filename))
 			throw new \Exception('Input must be a string');
@@ -224,9 +222,6 @@ class DOMDocument extends \DOMDocument
 			throw new \Exception("File $filename not found");
 		
 		$contents = file_get_contents($filename);
-		
-		if(preg_match('/^php$/i', pathinfo($filename, PATHINFO_EXTENSION)) && !isset($options[DOMDocument::OPTION_EVALUATE_PHP]))
-			$options[DOMDocument::OPTION_EVALUATE_PHP] = true;
 		
 		return $this->loadHTML($contents, $options);
 	}

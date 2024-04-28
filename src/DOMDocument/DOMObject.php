@@ -48,6 +48,17 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 
 		return $this->container[0]->ownerDocument;
 	}
+
+	public static function contains(DOMElement $container, DOMDocument $contained)
+	{
+		for($el = $contained->parentNode; $el != null; $el = $el->parentNode)
+		{
+			if($el === $container)
+				return true;
+		}
+
+		return false;
+	}
 	
 	public function toArray()
 	{

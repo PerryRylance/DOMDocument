@@ -16,17 +16,6 @@ class DOMElement extends \DOMElement
 	{
 		\DOMElement::__construct($qualifiedName);
 	}
-
-	public static function contains(DOMElement $container, DOMDocument $contained)
-	{
-		for($el = $contained->parentNode; $el != null; $el = $el->parentNode)
-		{
-			if($el === $container)
-				return true;
-		}
-
-		return false;
-	}
 	
 	/**
 	 * @internal sort function for DOM position sort
