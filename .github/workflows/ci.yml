@@ -8,10 +8,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Install packages
-      run: composer install
     - name: Run PHPUnit tests
       run: |
+        composer install
         chmod +x ./tests.sh
         ./tests.sh
       shell: bash
