@@ -1314,6 +1314,15 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 
 		return $this;
 	}
+
+	/**
+	 * Returns this object as a HTML fragment string.
+	 * @return string Elements in this object rendered to a HTML string fragment
+	 */
+	public function __toString()
+	{
+		return $this->html;
+	}
 }
 
 class_alias(DOMObject::class, '\PerryRylance\DOMDocument\DOMQueryResults');

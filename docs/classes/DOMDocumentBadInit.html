@@ -133,9 +133,16 @@
 
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/PerryRylance-DOMDocument.html#constant_OPTION_DISABLE_HTML_NS">OPTION_DISABLE_HTML_NS</a>
+    <span>
+        &nbsp;= 2                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/PerryRylance-DOMDocument.html#constant_OPTION_EVALUATE_PHP">OPTION_EVALUATE_PHP</a>
     <span>
-        &nbsp;= &quot;executePHP&quot;                            </span>
+        &nbsp;= 1                            </span>
 </dt>
 <dd></dd>
 
@@ -175,6 +182,13 @@
 <dd>Magic method for getting properties. Only &quot;html&quot; is supported presently.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument.html#method___toString">__toString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the entire document as a string.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PerryRylance-DOMDocument.html#method_convertUTF8ToHTMLEntities">convertUTF8ToHTMLEntities()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -184,14 +198,14 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PerryRylance-DOMDocument.html#method_create">create()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a>    </span>
 </dt>
-<dd></dd>
+<dd>Creates a HTML fragment from the supplied HTML source string</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PerryRylance-DOMDocument.html#method_getDocumentElementSafe">getDocumentElementSafe()</a>
     <span>
-                                &nbsp;: <abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr>    </span>
+                                &nbsp;: <a href="classes/PerryRylance-DOMDocument-DOMElement.html"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></a>    </span>
 </dt>
 <dd>Function to safely get the document element. Some PHP builds do not implement documentElement, this function can be used to safely retrieve the document element in absense of this property.</dd>
 
@@ -212,9 +226,16 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PerryRylance-DOMDocument.html#method_loadHTML">loadHTML()</a>
     <span>
-                                &nbsp;: <abbr title="\PerryRylance\This">This</abbr>    </span>
+                                &nbsp;: bool    </span>
 </dt>
 <dd>Loads the supplied HTML string</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PerryRylance-DOMDocument.html#method_loadHTMLFile">loadHTMLFile()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Loads the supplied HTML file</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PerryRylance-DOMDocument.html#method_save">save()</a>
@@ -240,9 +261,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PerryRylance-DOMDocument.html#method_shorthand">shorthand()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: callable    </span>
 </dt>
-<dd></dd>
+<dd>Returns a &quot;shorthand&quot; function which you can use in a jQuery-like manner to create fragemnts, eg $_ = $doc-&gt;shorthand(); $div = $_(&quot;&lt;div&gt;Example&lt;/div&gt;);</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/PerryRylance-DOMDocument.html#method_onLoaded">onLoaded()</a>
@@ -250,13 +271,6 @@
                                 &nbsp;: null    </span>
 </dt>
 <dd>Callback which fires after the HTML has been parsed and loaded, but before loadHTML returns. Useful for controlling the execution order for operations spread across an inheritance chain.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PerryRylance-DOMDocument.html#method_assertNotEmpty">assertNotEmpty()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
 
         </dl>
 
@@ -268,6 +282,35 @@
             Constants
             <a href="classes/DOMDocumentBadInit.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OPTION_DISABLE_HTML_NS">
+        OPTION_DISABLE_HTML_NS
+        <a href="classes/PerryRylance-DOMDocument.html#constant_OPTION_DISABLE_HTML_NS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OPTION_DISABLE_HTML_NS</span>
+    = <span class="phpdocumentor-signature__default-value">2</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_OPTION_EVALUATE_PHP">
         OPTION_EVALUATE_PHP
@@ -286,7 +329,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">OPTION_EVALUATE_PHP</span>
-    = <span class="phpdocumentor-signature__default-value">&quot;executePHP&quot;</span>
+    = <span class="phpdocumentor-signature__default-value">1</span>
 </code>
 
 
@@ -306,7 +349,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -350,7 +393,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -388,7 +431,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -429,7 +472,7 @@
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/PerryRylance-DOMDocument-DOMElement.html"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></a></span>
                                         
                                                  <section class="phpdocumentor-description"><p>for a list of supported methods</p>
 </section>
@@ -489,7 +532,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
@@ -524,6 +567,41 @@
         class="phpdocumentor-element
             -method
             -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___toString">
+        __toString()
+        <a href="classes/PerryRylance-DOMDocument.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">378</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the entire document as a string.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The entire document rendered to a string</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                     -static                    "
 >
     <h4 class="phpdocumentor-element__name" id="method_convertUTF8ToHTMLEntities">
@@ -533,7 +611,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -580,25 +658,26 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">342</span>
+    <span class="phpdocumentor-element-found-in__line">358</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Creates a HTML fragment from the supplied HTML source string</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$html</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$html</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$html</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>The HTML source string</p>
+</section>
 
             </dd>
             </dl>
@@ -606,9 +685,11 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMObject.html"><abbr title="\PerryRylance\DOMDocument\DOMObject">DOMObject</abbr></a></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>The resulting element(s)</p>
+</section>
+
     
 </article>
                     <article
@@ -624,7 +705,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">261</span>
+    <span class="phpdocumentor-element-found-in__line">278</span>
 
     </aside>
 
@@ -632,14 +713,14 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDocumentElementSafe</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">getDocumentElementSafe</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMElement.html"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></a></span></code>
 
     
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PerryRylance-DOMDocument-DOMElement.html"><abbr title="\PerryRylance\DOMDocument\DOMElement">DOMElement</abbr></a></span>
             &mdash;
             <section class="phpdocumentor-description"><p>The document element for this document</p>
 </section>
@@ -659,7 +740,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">315</span>
+    <span class="phpdocumentor-element-found-in__line">332</span>
 
     </aside>
 
@@ -706,7 +787,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">212</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 
     </aside>
 
@@ -714,14 +795,14 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">load</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\This">This</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">load</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\This">This</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$filename</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -729,10 +810,10 @@
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">array()</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>An array of options. Presently only DOMDocument::OPTION_EVALUATE_PHP is supported, this defaults to TRUE and will execute inline PHP</p>
+                    <section class="phpdocumentor-description"><p>A bit field of options. Presently only DOMDocument::OPTION_EVALUATE_PHP is supported, this defaults to TRUE and will execute inline PHP</p>
 </section>
 
             </dd>
@@ -777,7 +858,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 
     </aside>
 
@@ -785,7 +866,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">loadHTML</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$src</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\This">This</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">loadHTML</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$src</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -801,10 +882,10 @@
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">array()</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>An array of options. Presently only DOMDocument::OPTION_EXECUTE_PHP is supported, this defaults to TRUE and will execute inline PHP</p>
+                    <section class="phpdocumentor-description"><p>A bit field of options. Presently only DOMDocument::OPTION_EXECUTE_PHP is supported, this defaults to TRUE and will execute inline PHP</p>
 </section>
 
             </dd>
@@ -829,9 +910,81 @@
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\PerryRylance\This">This</abbr></span>
+    <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>document, for method chaining</p>
+            <section class="phpdocumentor-description"><p>true</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadHTMLFile">
+        loadHTMLFile()
+        <a href="classes/PerryRylance-DOMDocument.html#method_loadHTMLFile" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">211</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Loads the supplied HTML file</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadHTMLFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filename</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filename</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The file to parse</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$options</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A bit field of options. Presently only DOMDocument::OPTION_EXECUTE_PHP is supported, this defaults to TRUE and will execute inline PHP</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/Masterminds/html5-php#options"><abbr title="https://github.com/Masterminds/html5-php#options">https://github.com/Masterminds/html5-php#options</abbr></a></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>for other options supported by the HTML5 parser</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>true</p>
 </section>
 
     
@@ -849,7 +1002,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">250</span>
+    <span class="phpdocumentor-element-found-in__line">267</span>
 
     </aside>
 
@@ -919,7 +1072,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">234</span>
+    <span class="phpdocumentor-element-found-in__line">251</span>
 
     </aside>
 
@@ -988,7 +1141,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">288</span>
+    <span class="phpdocumentor-element-found-in__line">305</span>
 
     </aside>
 
@@ -1023,24 +1176,26 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">142</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns a &quot;shorthand&quot; function which you can use in a jQuery-like manner to create fragemnts, eg $_ = $doc-&gt;shorthand(); $div = $_(&quot;&lt;div&gt;Example&lt;/div&gt;);</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">shorthand</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">shorthand</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">callable</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">callable</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>A convenience function which creates HTML fragments from a string</p>
+</section>
+
     
 </article>
                     <article
@@ -1056,7 +1211,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">200</span>
+    <span class="phpdocumentor-element-found-in__line">220</span>
 
     </aside>
 
@@ -1072,39 +1227,6 @@
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">null</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_assertNotEmpty">
-        assertNotEmpty()
-        <a href="classes/PerryRylance-DOMDocument.html#method_assertNotEmpty" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/DOMDocument.php"><a href="files/src-domdocument.html"><abbr title="src/DOMDocument.php">DOMDocument.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">336</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">assertNotEmpty</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     

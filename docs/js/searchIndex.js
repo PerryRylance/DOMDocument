@@ -1,6 +1,66 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement",
+            "name": "DOMElement",
+            "summary": "This\u0020class\u0020is\u0020used\u0020to\u0020represent\u0020elements,\u0020and\u0020implements\u0020many\u0020jQuery\u002Dlike\u0020functions\u0020for\u0020the\u0020elements",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020for\u0020a\u0020DOMElement.\u0020This\u0020should\u0020not\u0020be\u0020called\u0020directly.\u0020Use\u0020the\u0020document\u0027s\u0020createElement\u0020method\u0020instead",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method___construct"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003AimplicitCastParentNode\u0028\u0029",
+            "name": "implicitCastParentNode",
+            "summary": "",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method_implicitCastParentNode"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003AimplicitCastDomElement\u0028\u0029",
+            "name": "implicitCastDomElement",
+            "summary": "",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method_implicitCastDomElement"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003AisBefore\u0028\u0029",
+            "name": "isBefore",
+            "summary": "Test\u0020if\u0020this\u0020element\u0020comes\u0020before\u0020the\u0020other\u0020element\u0020in\u0020the\u0020DOM\u0020tree",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method_isBefore"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003AgetBreadth\u0028\u0029",
+            "name": "getBreadth",
+            "summary": "Returns\u0020the\u0020breadth\u0020\u0028sometimes\u0020called\u0020child\u0020index\u0029\u0020of\u0020this\u0020node\u0020in\u0020regards\u0020to\u0020it\u0027s\u0020siblings",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method_getBreadth"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003AgetDepth\u0028\u0029",
+            "name": "getDepth",
+            "summary": "Returns\u0020the\u0020depth\u0020of\u0020this\u0020node\u0020in\u0020regards\u0020to\u0020it\u0027s\u0020ancestors",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method_getDepth"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "Getter.\u0020The\u0020only\u0020supported\u0020property\u0020is\u0020html",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method___get"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003A__set\u0028\u0029",
+            "name": "__set",
+            "summary": "",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method___set"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003AquerySelectorAll\u0028\u0029",
+            "name": "querySelectorAll",
+            "summary": "Equivalent\u0020of\u0020JavaScripts\u0020querySelectorAll,\u0020takes\u0020a\u0020CSS\u0020selector,\u0020and\u0020optionally\u0020an\u0020array\u0020of\u0020options.",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method_querySelectorAll"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003AquerySelector\u0028\u0029",
+            "name": "querySelector",
+            "summary": "Equivalent\u0020of\u0020JavaScripts\u0020querySelector.\u0020This\u0020will\u0020return\u0020the\u0020first\u0020element\u0020matching\u0020the\u0020specified\u0020selector,\u0020or\u0020NULL\u0020when\u0020no\u0020elements\u0020match",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method_querySelector"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMElement\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Returns\u0020this\u0020element\u0020as\u0020a\u0020HTML\u0020fragment\u0020string.",
+            "url": "classes/PerryRylance-DOMDocument-DOMElement.html#method___toString"
+        },                {
             "fqsen": "\\PerryRylance\\DOMDocument\\DOMObject",
             "name": "DOMObject",
             "summary": "This\u0020class\u0020is\u0020used\u0020to\u0020represent\u0020a\u0020results\u0020set\u0020of\u0020matched\u0020elements,\u0020in\u0020much\u0020the\u0020same\u0020way\u0020as\u0020a\u0020jQuery\u0020array\u0020works.\u0020Any\u0020methods\u0020supported\u0020by\u0020DOMElement\u0020can\u0020be\u0020called\u0020on\u0020a\u0020DOMObject\u0020list.",
@@ -15,6 +75,11 @@ Search.appendIndex(
             "name": "implicitOwnerDocumentCast",
             "summary": "",
             "url": "classes/PerryRylance-DOMDocument-DOMObject.html#method_implicitOwnerDocumentCast"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMObject\u003A\u003Acontains\u0028\u0029",
+            "name": "contains",
+            "summary": "",
+            "url": "classes/PerryRylance-DOMDocument-DOMObject.html#method_contains"
         },                {
             "fqsen": "\\PerryRylance\\DOMDocument\\DOMObject\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
@@ -120,6 +185,11 @@ Search.appendIndex(
             "name": "is",
             "summary": "Checks\u0020if\u0020any\u0020element\u0020within\u0020this\u0020set\u0020matches\u0020the\u0020supplied\u0020selector",
             "url": "classes/PerryRylance-DOMDocument-DOMObject.html#method_is"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMObject\u003A\u003AisDocument\u0028\u0029",
+            "name": "isDocument",
+            "summary": "Checks\u0020if\u0020this\u0020object\u0020contains\u0020the\u0020document\u0020exclusively",
+            "url": "classes/PerryRylance-DOMDocument-DOMObject.html#method_isDocument"
         },                {
             "fqsen": "\\PerryRylance\\DOMDocument\\DOMObject\u003A\u003Aduplicate\u0028\u0029",
             "name": "duplicate",
@@ -271,6 +341,11 @@ Search.appendIndex(
             "summary": "Imports\u0020the\u0020supplied\u0020subject\u0020and\u0020appends\u0020it\u0020to\u0020this\u0020set.\u0020Noop\u0020when\u0020this\u0020set\u0020is\u0020empty.",
             "url": "classes/PerryRylance-DOMDocument-DOMObject.html#method_import"
         },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\\DOMObject\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Returns\u0020this\u0020object\u0020as\u0020a\u0020HTML\u0020fragment\u0020string.",
+            "url": "classes/PerryRylance-DOMDocument-DOMObject.html#method___toString"
+        },                {
             "fqsen": "\\PerryRylance\\DOMDocument\\DOMObject\u003A\u003A\u0024index",
             "name": "index",
             "summary": "",
@@ -308,13 +383,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003Ashorthand\u0028\u0029",
             "name": "shorthand",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020\u0022shorthand\u0022\u0020function\u0020which\u0020you\u0020can\u0020use\u0020in\u0020a\u0020jQuery\u002Dlike\u0020manner\u0020to\u0020create\u0020fragemnts,\u0020eg\u0020\u0024_\u0020\u003D\u0020\u0024doc\u002D\u003Eshorthand\u0028\u0029\u003B\u0020\u0024div\u0020\u003D\u0020\u0024_\u0028\u0022\u003Cdiv\u003EExample\u003C\/div\u003E\u0029\u003B",
             "url": "classes/PerryRylance-DOMDocument.html#method_shorthand"
         },                {
             "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003AloadHTML\u0028\u0029",
             "name": "loadHTML",
             "summary": "Loads\u0020the\u0020supplied\u0020HTML\u0020string",
             "url": "classes/PerryRylance-DOMDocument.html#method_loadHTML"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003AloadHTMLFile\u0028\u0029",
+            "name": "loadHTMLFile",
+            "summary": "Loads\u0020the\u0020supplied\u0020HTML\u0020file",
+            "url": "classes/PerryRylance-DOMDocument.html#method_loadHTMLFile"
         },                {
             "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003AonLoaded\u0028\u0029",
             "name": "onLoaded",
@@ -351,20 +431,25 @@ Search.appendIndex(
             "summary": "This\u0020function\u0020will\u0020import\u0020the\u0020specified\u0020content\u0020to\u0020be\u0020used\u0020inside\u0020this\u0020document.",
             "url": "classes/PerryRylance-DOMDocument.html#method_import"
         },                {
-            "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003AassertNotEmpty\u0028\u0029",
-            "name": "assertNotEmpty",
-            "summary": "",
-            "url": "classes/PerryRylance-DOMDocument.html#method_assertNotEmpty"
-        },                {
             "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "",
+            "summary": "Creates\u0020a\u0020HTML\u0020fragment\u0020from\u0020the\u0020supplied\u0020HTML\u0020source\u0020string",
             "url": "classes/PerryRylance-DOMDocument.html#method_create"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Returns\u0020the\u0020entire\u0020document\u0020as\u0020a\u0020string.",
+            "url": "classes/PerryRylance-DOMDocument.html#method___toString"
         },                {
             "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003AOPTION_EVALUATE_PHP",
             "name": "OPTION_EVALUATE_PHP",
             "summary": "",
             "url": "classes/PerryRylance-DOMDocument.html#constant_OPTION_EVALUATE_PHP"
+        },                {
+            "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003AOPTION_DISABLE_HTML_NS",
+            "name": "OPTION_DISABLE_HTML_NS",
+            "summary": "",
+            "url": "classes/PerryRylance-DOMDocument.html#constant_OPTION_DISABLE_HTML_NS"
         },                {
             "fqsen": "\\PerryRylance\\DOMDocument\u003A\u003AUNDEFINED",
             "name": "UNDEFINED",
@@ -375,11 +460,6 @@ Search.appendIndex(
             "name": "constructorCalled",
             "summary": "",
             "url": "classes/PerryRylance-DOMDocument.html#property_constructorCalled"
-        },                {
-            "fqsen": "\\DEBUG",
-            "name": "DEBUG",
-            "summary": "",
-            "url": "namespaces/default.html#constant_DEBUG"
         },                {
             "fqsen": "\\DOMDocumentBadInit",
             "name": "DOMDocumentBadInit",
@@ -550,6 +630,21 @@ Search.appendIndex(
             "name": "testOutputNotEmpty",
             "summary": "",
             "url": "classes/DOMDocumentTest.html#method_testOutputNotEmpty"
+        },                {
+            "fqsen": "\\DOMDocumentTest\u003A\u003AtestCastDocumentToString\u0028\u0029",
+            "name": "testCastDocumentToString",
+            "summary": "",
+            "url": "classes/DOMDocumentTest.html#method_testCastDocumentToString"
+        },                {
+            "fqsen": "\\DOMDocumentTest\u003A\u003AtestCastDomObjectToString\u0028\u0029",
+            "name": "testCastDomObjectToString",
+            "summary": "",
+            "url": "classes/DOMDocumentTest.html#method_testCastDomObjectToString"
+        },                {
+            "fqsen": "\\DOMDocumentTest\u003A\u003AtestCastElementToString\u0028\u0029",
+            "name": "testCastElementToString",
+            "summary": "",
+            "url": "classes/DOMDocumentTest.html#method_testCastElementToString"
         },                {
             "fqsen": "\\",
             "name": "\\",

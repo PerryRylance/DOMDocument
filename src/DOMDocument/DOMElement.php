@@ -176,6 +176,15 @@ class DOMElement extends \DOMElement
 		
 		return $results[0];
 	}
+
+	/**
+	 * Returns this element as a HTML fragment string.
+	 * @return string Elements in this element rendered to a HTML string fragment
+	 */
+	public function __toString()
+	{
+		return $this->html;
+	}
 	
 	/**
 	 * @ignore

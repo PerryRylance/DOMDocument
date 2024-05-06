@@ -13,7 +13,7 @@ class DOMDocumentBadInit extends DOMDocument
 
 final class DOMDocumentTest extends TestCase
 {
-	private function getDocument()
+	private function getDocument(): DOMDocument
 	{
 		$document = new DOMDocument();
 		$document->load(__DIR__ . "/sample.html");
@@ -446,5 +446,43 @@ final class DOMDocumentTest extends TestCase
 		$document = $this->getDocument();
 
 		$this->assertNotEmpty($document->html);
+	}
+
+	public function testCastDocumentToString()
+	{
+		// NB: The renderer has different ideas about whitespace and self closing elements so I've baked in the formatted document for use here.
+		$file		= __DIR__ . "/formatted.html";
+		$source		= file_get_contents($file);
+
+		$document	= $this->getDocument();
+		$string		= (string)$document;
+
+		$this->assertStringEqualsStringIgnoringLineEndings($source, $string);
+	}
+
+	public function testCastDomObjectToString()
+	{
+		$source		= str_repeat("<div>Testing...</div>", 3);
+
+		$document	= new DOMDocument();
+		$document->loadHTML("<html><body>$source</body></html>");
+
+		$divs		= $document->find('div');
+		$string		= (string)$divs;
+
+		$this->assertStringEqualsStringIgnoringLineEndings($source, $string);
+	}
+
+	public function testCastElementToString()
+	{
+		$source		= '<div id="test">Test</div>';
+
+		$document	= new DOMDocument();
+		$document->loadHTML($source);
+
+		$div		= $document->find("#test")[0];
+		$string		= (string)$div;
+
+		$this->assertEquals($source, $string);
 	}
 }

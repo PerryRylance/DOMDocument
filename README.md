@@ -16,7 +16,7 @@ Instantiate DOMDocument and enjoy the jQuery-like functions now at your disposal
 As of version 2.0.0, this library does not add jQuery-like methods to DOMElement, in order to avoid future collisions with the HTML living standard spec. Rather, these jQuery-like methods are implemented on `DOMObject` in the same manner jQuery objects work.
 
 ## Documentation
-Read the libraries [documentation](http://perryrylance.com/docs/DOMDocument).
+Read the libraries [documentation](https://perryrylance.github.io/DOMDocument/).
 
 The requirements to generate documentation are as follows:
 
@@ -31,7 +31,9 @@ As of 3.0.0, tests are run via Docker to facilitate cross PHP version testing.
 
 All tests can be run by running `tests.sh`.
 
-<!-- You can run individual tests  -->
+To run individual tests from your native CLI:
+
+`docker-compose run php82 php /app/vendor/bin/phpunit tests --filter=testCastToString`
 
 ## Migrating from 2.* to 3.*
 Version 2.* is not compatible with PHP 8.3, version 3.0.0 addresses this.

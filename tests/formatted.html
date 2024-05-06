@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html><head>
+	
+		<title>PerryRylance\DOMDocument Test</title>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		
+	</head>
+
+	<body>
+		
+		<!-- Test for isBefore / getBreadth / getDepth -->
+		<div class="before"></div>
+		<div>
+			<div class="after"></div>
+		</div>
+		
+		<!-- Test for getDepth -->
+		<div id="depth"></div>
+		
+		The content of the document......
+
+		<video controls>
+			<source src="http://techslides.com/demos/sample-videos/small.webm" type="video/webm"> 
+			<source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg"> 
+			<source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+			<source src="http://techslides.com/demos/sample-videos/small.3gp" type="video/3gp">
+		</video>
+
+		<div class="node-to-be-removed">This should be removed</div>
+
+		<ul>
+			<li class="template"></li>
+		</ul>
+
+		<form>
+			<fieldset class="checkboxes">
+				<label>
+					<input type="checkbox" value="1"> Steak and potatoes
+				</label>
+				<label>
+					<input type="checkbox" value="2"> Rice, corn, chitterling and tomatoes
+				</label>
+				<label>
+					<input type="checkbox" value="3" checked="checked"> Ham and greens
+				</label>
+				<label>
+					<input type="checkbox" value="4" checked="checked"> Chicken pot pie and lima beans
+				</label>
+			</fieldset>
+			<fieldset class="radios">
+				<label>
+					<input type="radio" value="a"> Corn dogs and mustard
+				</label>
+				<label>
+					<input type="radio" value="b"> Cracker jacks, and tutti fruity custard
+				</label>
+				<label>
+					<input type="radio" value="c" checked="checked"> Buffalo wings
+				</label>
+			</fieldset>
+		</form>
+
+		<div id="html-method-test">
+			<span>Should only match span</span>
+		</div>
+
+		<div id="shorthand-test">
+			<ul>
+				<li>This test failed</li>
+				<li>This test failed</li>
+				<li>This test failed</li>
+			</ul>
+		</div>
+
+		<a id="blog" href="https://perryrylance.com">Visit my blog</a>
+
+	</body>
+	
+</html>

@@ -146,7 +146,11 @@ class DOMDocument extends \DOMDocument
 		throw new \Exception("No such method $name");
 	}
 
-	public function shorthand()
+	/**
+	 * Returns a "shorthand" function which you can use in a jQuery-like manner to create fragemnts, eg $_ = $doc->shorthand(); $div = $_("<div>Example</div>);
+	 * @return callable A convenience function which creates HTML fragments from a string
+	 */
+	public function shorthand(): callable
 	{
 		return function($subject) {
 			return new DOMObject($subject);
@@ -198,6 +202,18 @@ class DOMDocument extends \DOMDocument
 	}
 
 	/**
+	 * Loads the supplied HTML file
+	 * @param string $filename The file to parse
+	 * @param int $options A bit field of options. Presently only DOMDocument::OPTION_EXECUTE_PHP is supported, this defaults to TRUE and will execute inline PHP
+	 * @see https://github.com/Masterminds/html5-php#options for other options supported by the HTML5 parser
+	 * @return bool true
+	 */
+	public function loadHTMLFile(string $filename, int $options = DOMDocument::OPTION_EVALUATE_PHP | DOMDocument::OPTION_DISABLE_HTML_NS): bool
+	{
+		return $this->loadHTML($filename, $options);
+	}
+
+	/**
 	 * Callback which fires after the HTML has been parsed and loaded, but before loadHTML returns. Useful for controlling the execution order for operations spread across an inheritance chain.
 	 * @return null
 	 */
@@ -232,7 +248,7 @@ class DOMDocument extends \DOMDocument
 	 * @param array $options An array of options to pass to the HTML5 parser
 	 * @see https://github.com/Masterminds/html5-php#options for other options supported by the HTML5 parser
 	 */
-	public function saveHTML($element=null, $options=array()): string|false
+	public function saveHTML($element=null, $options=array()): string | false
 	{
 		if($element == null)
 			$element = $this;
@@ -286,7 +302,7 @@ class DOMDocument extends \DOMDocument
 	 * This function saves only the inside of the <body> element of this document. This is useful when you want to import a HTML document into another, but you don't want to end up with nested <html> elements. This is equivalent to using the "html" property.
 	 * @return string The HTML string
 	 */
-	public function saveInnerBody()
+	public function saveInnerBody(): string
 	{
 		$body = null;
 		$result = '';
@@ -334,13 +350,12 @@ class DOMDocument extends \DOMDocument
 		return $results;
 	}
 	
-	private function assertNotEmpty()
-	{
-		if(empty($this->getDocumentElementSafe()))
-			throw new \Exception('Document is empty');
-	}
-
-	public function create($html)
+	/**
+	 * Creates a HTML fragment from the supplied HTML source string
+	 * @param string $html The HTML source string
+	 * @return DOMObject The resulting element(s)
+	 */
+	public function create(string $html): DOMObject
 	{
 		$div		= $this->createElement("div");
 		$set		= new DOMObject($div);
@@ -354,5 +369,14 @@ class DOMDocument extends \DOMDocument
 			$arr	[]= $node->cloneNode(true);
 
 		return		new DOMObject($arr);
+	}
+
+	/**
+	 * Returns the entire document as a string.
+	 * @return string The entire document rendered to a string
+	 */
+	public function __toString()
+	{
+		return $this->saveHTML();
 	}
 }
