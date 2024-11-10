@@ -5,6 +5,8 @@ namespace PerryRylance;
 require_once(__DIR__ . '/DOMDocument/DOMElement.php');
 require_once(__DIR__ . '/DOMDocument/DOMObject.php');
 
+use Exception;
+
 use PerryRylance\DOMDocument\DOMElement;
 use PerryRylance\DOMDocument\DOMObject;
 
@@ -335,6 +337,8 @@ class DOMDocument extends \DOMDocument
 			$fragment = $subject;
 		else if($subject instanceof DOMElement || $subject instanceof DOMDocument)
 			$fragment = $subject->html;
+		else
+			throw new Exception("Don't know how to process subject");
 		
 		$temp 		= new DOMDocument();
 		$temp->loadHTML($fragment);

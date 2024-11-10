@@ -28,8 +28,7 @@
     },
 	
 	"require-dev": {
-        "phpdocumentor/phpdocumentor": "3.*",
-		"phpunit/phpunit": "10",
+        "phpunit/phpunit": "10",
 		"sabberworm/php-css-parser": "^8.4"
     },
 	

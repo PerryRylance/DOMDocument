@@ -379,7 +379,7 @@ class DOMObject implements \ArrayAccess, \Countable, \Iterator
 	/**
 	 * Gets or sets inline styles on this set. Please note that this function, unlike jQuery, cannot be used to get computed styles. Only inline styles are supported.
 	 * @param array|string|null $arg An array of properties to set, a or string to get from the first element in the set
-	 * @return DOMQueryResutls|string|null Will return this set for method chaining if $arg is an array, returns the CSS property value as a string if $arg is a string, returns null if $arg is a string and $val is not supplied, and the set is empty
+	 * @return DOMObject|string|null Will return this set for method chaining if $arg is an array, returns the CSS property value as a string if $arg is a string, returns null if $arg is a string and $val is not supplied, and the set is empty
 	 * @throws \Exception When the supplied argument is neither a string nor an array
 	 */
 	public function css($arg=null, $val=DOMDocument::UNDEFINED)
