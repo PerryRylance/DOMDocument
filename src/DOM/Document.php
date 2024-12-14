@@ -15,7 +15,7 @@ use PerryRylance\DOMDocument\DOMObject;
  *
  * @mixin DOMObject
  */
-class DOMDocument extends \DOMDocument
+class Document extends \DOMDocument
 {
 	const OPTION_EVALUATE_PHP		= 1;
 	const OPTION_DISABLE_HTML_NS	= 2; // NB: Prevents the parser from automatically assigning the HTML5 namespace to the DOM document. See Masterminds/html5-php.
