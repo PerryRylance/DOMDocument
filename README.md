@@ -1,6 +1,17 @@
 # DOMDocument
 An extension of PHP's DOMDocument library. This library implements many common jQuery functions, adds support for HTML5, CSS selectors, method chaining and performing operations on sets of matched results.
 
+## IMPORTANT NOTICE - The future of this library
+With the release of PHP 8.4's [new DOM features](https://www.php.net/manual/en/migration84.new-features.php#migration84.new-features.dom), the core features of this package are now supported natively, that is, HTML5 and CSS selectors.
+
+Whilst this library is still compatible, if there are any future versions then I will be handing over this functionality to PHP's new DOM classes.
+
+I have experimented with the new version and as far as I can tell there is now no means to register our own classes as extensions of the built in node class. The `HTMLDocument` is `final` and I cannot see any documented way to register node classes. With that said, the documentation hasn't been updated yet, neither has Intelephense seemingly.
+
+I will wait until the documentation has been updated and then decide whether this package will be deprecated or not. I may also take this library in a different direction such as providing a single jQuery like function to manipulate documents without touching or extending the built in implementation.
+
+Please watch this space!
+
 ## Requirements
 - PHP >= 8.2.0
 - Composer
